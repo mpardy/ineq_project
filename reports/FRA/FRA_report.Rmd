@@ -1,8 +1,8 @@
 ---
-title: "Einkommensverteilung in Österreich"
+title: "Einkommensverteilung in Frankreich"
 subtitle: "2063 - Ökonomie der Verteilung"
-author: "Nikolas Kuschnig & Casper Engelen"
-abstract: "Dieses Dokument stellt einige Funktionen von Rmarkdown vor und bietet eine simple Grundstruktur für Länder-Reports."
+author: "Julia Mathe & Martina Pardy"
+abstract: "Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich Einkommen in Frankreich von 2005 bis 2017 generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Add more"
 keywords: "a, b, c"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output: 
@@ -100,6 +100,11 @@ Horizontale Linien:
 \newpage
 
 # Einführung
+
+## Einkommensverteilung in Frankreich
+
+## Armutsentwicklung in Frankreich
+Mitte September 2018 verkündete der französische Präsident Emmanuel Macron Frankreichs Strategie gegen Armut. Acht Milliarden Euro sollen zur Verfügung gestellt werden, um Ungleichheiten zu verringern und die Armut zu senken. Besonderer Fokus liegt dabei auf der Förderung von jungen Menschen, deren Ausbildung von früh an unterstützt werden soll. Der französische Präsident ist mehrfach unter Kritik geraten, da von seiner poltischen Maßnahmen die reichere Bevölkerungsschicht profitiert, wie zum Beispiel durch die weitgehende Abschaffung der Vermögenssteuer. [@povertystrategy2018financial]
 
 # Methodologie
 
