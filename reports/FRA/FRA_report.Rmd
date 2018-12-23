@@ -2,7 +2,7 @@
 title: "Einkommensverteilung in Frankreich"
 subtitle: "2063 - Ökonomie der Verteilung"
 author: "Julia Mathe & Martina Pardy"
-abstract: "Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich Einkommen in Frankreich von 2005 bis 2017 generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Add more"
+abstract: "Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich Einkommen in Frankreich von 2004 bis 2017 generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Add more"
 keywords: "a, b, c"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output: 
