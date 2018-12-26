@@ -116,6 +116,14 @@ Der Grund dafür ist, dass laut der Europäischen Kommission im Jahr 2016 beinah
 
 ## Indikatoren
 
+### Einkommensverteilung in Frankreich
+
+### Armutsentwicklung in Frankreich
+Um die Entwicklung der Armut und sozialen Ausgrenzung innerhalb von Frankreich zu beurteilen, werden die drei folgenden Hauptindikatoren verwendet: die Armutsgefährdungsquote, die Quote der materiellen Deprivation und die Rate der in Haushalten mit niedriger Erwerbsintensität lebenden Personen. Dabei wird eine Zeitreihenanalyse beginnend im Jahr 2004 bis 2017 durchgeführt und die Entwicklung erforscht.
+
+
+
+
 # Ergebnisse
 
 # Zusammenfassung
