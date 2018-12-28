@@ -49,7 +49,7 @@ arop
 
 silc.h <- tbl(pg, "hh") %>%
   filter(hb020 %in% country) %>%
-  select(hb010, hb020, hb030, hs011, hs110, hh050, hs040, hs050, hs060, hs070, hs080, hs100) %>%
+  dplyr::select(hb010, hb020, hb030, hs110, hh050, hs040, hs050, hs060, hs070, hs080, hs100) %>%
   collect(n = Inf)
 
 # Only 8 variables downloaded, as object 'hs011' not found
@@ -92,15 +92,29 @@ rm(hs010, c07h, c08h, c09h, c10h, c11h, c12h, c13h, c14h, c15h, c16h, c17h)
 silc.h05 <- silc.h %>% filter(hb010==2005)
 silc.h00 <- silc.h05 %>%  dplyr::select(-c(hb010, hb030))
 
-#silc.h00 <- dplyr::select(c(hs110, hh050, hs040, hs050, hs060, hs070, hs080, hs100)) %>% add_count() 
+hh050 <- silc.h00$hh050 == 2
+hs050 <- silc.h00$hs050 == 2
+hs040 <- silc.h00$hs040 == 2
+hs060 <- silc.h00$hs060 == 2
+hs070 <- silc.h00$hs070 == 2
+hs080 <- silc.h00$hs080 == 2
+hs100 <- silc.h00$hs100 == 2
+hs110 <- silc.h00$hs110 == 2
 
-#silc.h00 <- silc.h00 %>% count(c(hs110, hh050, hs040, hs050, hs060, hs070, hs080, hs100)==2) 
+silc.h00c <-  bind_cols(hh050 = hh050, hs050=hs050,hs040 =hs040, hs060=hs060, hs070=hs070, hs080=hs080, hs100=hs100, hs110=hs110)
+View(silc.h00c)
 
-#silc.h00 <- add_count(silc.h00) %>% filter(n==2)
+silc.h00c[is.na(silc.h00c)] <- 0
 
-View(silc.h00)
+silc.h00c <- silc.h00c  %>%
+  mutate(x = hh050+hs050+hs040+hs060+hs070+hs080+hs100+hs110)
+
+silc.h00c %>% filter(x>=4)
+
+n05dp <- nrow(silc.h00c)
 n05 <- nrow(silc.h05)
 
+sdm<-n05dp/n05
 
 #3) Population living in very low intensity (quasijobless) households ---------------------------------------
 
