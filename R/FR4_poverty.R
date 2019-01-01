@@ -1,7 +1,12 @@
+# -------------------------------------------------------------------------
+#
+# Part5: Armutsindikatoren
+# Group FR
+#
+# --------------------------------------------------------------------------
 
-#Armutsindikatoren --------------------------------------------------------------------------------------
 
-#1) At risk of poverty and social exclusion rate (AROPE)
+#1) At risk of poverty rate (AROP)
 #2) Severe material deprivation rate
 #3) Population living in very low intensity (quasijobless) households
 
@@ -14,34 +19,52 @@
 #1) Use laeken package using y13
 library(laeken)
 
-arop <- arpr(silc.p1$y13, weights=silc.p1$rb050, years=silc.p1$rb010)
+silc.p105 <- silc.p1 %>% filter(rb010 > 2005)
+
+arop <- arpr(data$y13, weights=data$rb050, years=data$rb010)
 arop
 
 
-#2) Manual computation using y13
+#Manual computation using y13
 #silc.p105 <- silc.p105 %>% mutate(x05=y13/median)
 #nindivpoverty05 <- sum(silc.p105$x05<0.6)
 #n05 <- nrow(silc.p105)
 #nindivpoverty05/n05 #=12.94
-
-#silc.p116 <- silc.p116 %>% mutate(x16=y13/median)
-#nindivpoverty16 <- sum(silc.p116$x16<0.6)
-#n16 <- nrow(silc.p116)
 #nindivpoverty16/n16 #=12.57
 
-#Check - use hy020
-#1) Use laeken package using hy020
+#Use laeken package using hy020
 #arpr(inc = silc.p105$hy020, weights = silc.p105$rb050) =15.23
 #arpr(inc = silc.p116$hy020, weights = silc.p116$rb050) =18.26
 
 
 #1a) GENDER: At risk of poverty rate ---------------------------------------------------
 
-#above 18
+# age >=18 
+
+data18 <- data %>% filter(age>=18)
+arop1 <- arpr (data$y13, weights=data$rb050, breakdown = data$rb090, years=data$rb010)
+arop1
 
 
-#1b) AGE:  At risk of poverty and social exclusion rate  ----------------------------------------------------
-#0-17 (0-5; 6-11; 12-17), 18-64, 65+
+#1b) AGE:  At risk of poverty rate  ----------------------------------------------------
+
+#Prepare data
+data0 <- data %>% subset(age<18)
+data1865  <- data %>% subset(age >= 18 & age <= 64)
+data65 <- data %>% subset(age>64)
+
+# At risk of poverty rate aged 0-17 
+arop2 <- arpr(data0$y13, weights=data0$rb050, years=data0$rb010)
+arop2
+
+# At risk of poverty rate aged 18-64
+arop3 <- arpr(data1865$y13, weights=data1865$rb050, years=data1865$rb010)
+arop3
+
+# At risk of poverty rate aged 65+
+arop4 <- arpr(data65$y13, weights=data65$rb050, years=data65$rb010)
+arop4
+
 
 #2) Severe material deprivation rate ------------------------------------------------------------------------
 
