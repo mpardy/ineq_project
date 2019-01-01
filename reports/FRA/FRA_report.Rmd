@@ -135,7 +135,8 @@ Der Grad der niedrigen Erwerbsintensität stellt insofern einen relevanten Armut
 
 
 # Ergebnisse
-![Bilder einfügen (plot_risk_poverty)](img/plot_risk_poverty.png){width=60%}
+
+#![Bilder einfügen (poverty)](img/plot_risk_poverty.png){width=60%}
 
 # Zusammenfassung
 
