@@ -44,23 +44,47 @@ ggplot2 <- ggplot(top11, aes(x=rb010)) +
 
 ggplot2
         
-#2) At risk of poverty rate --------------------------------------------------
+#3) At risk of poverty rate, TOTAL ------------------------------------------
 
 # Prepare data
 arop <- data.frame(arop$value, arop$threshold)
-arop <- arop %>% mutate (rb010 = 2006:2017)
+arop <- arop %>% mutate (rb010 = 2007:2017)
 
 # Create plot
 ggplot3 <- ggplot(arop, aes(x=rb010)) + 
-  geom_line(aes(y=arop.value, col = "Armutsgefaehrdung")) + 
+  geom_line(aes(y=arop.value, color="Anteil Armutsgefaehrdung")) + 
   labs(title="Armutsgefaehrdungsquote", 
-       subtitle="in Frankreich von 2006-2017", 
+       subtitle="in Frankreich von 2007-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
        y ="Armutsgefaehrdung in %",
        x = "Jahre",
        col="Legende") +
-  scale_x_continuous(breaks=c(2006, 2008, 2010, 2012, 2014, 2016, 2017)) +
-  scale_y_continuous(breaks=c(10, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15))
+  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  scale_y_continuous(limits=c(11,15), breaks=seq(11,15, by = 0.5))
 
 ggplot3
 
+library(eurostat)
+
+#4) At risk of poverty rate, by gender ---------------------------------------
+
+# Prepare data
+arop11 <- data.frame(arop1$valueByStratum)
+arop12 <- arop11 %>% filter(stratum==2) %>% rename("female"=value, "stratum1"=stratum)
+arop11 <- arop11 %>% filter(stratum==1) %>% rename("male"=value)
+arop1 <- left_join(arop12, arop11)
+
+# Create plot
+ggplot4 <- ggplot(arop1, aes(x=year)) + 
+  geom_line(aes(y=female, color="Armutsgefaehrdung Frauen")) +
+  geom_line(aes(y=male, color="Armutsgefaehrdung Maenner")) +
+  labs(title="Armutsgefaehrdungsquote nach Geschlecht", 
+       subtitle="in Frankreich von 2007-2017", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       y ="Armutsgefaehrdung in %",
+       x = "Jahre",
+       col="Legende") +
+  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  scale_y_continuous(limits=c(10,15), breaks=seq(10,15, by = 1))
+
+ggplot4
