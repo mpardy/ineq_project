@@ -80,64 +80,37 @@ silc.h <- tbl(pg, "hh") %>%
 #keep only HS011 starting from the 2011 operation. 
 # difference hs011 & hs010: hs010 only asks if you have ever had arrears on mortage and rent payments 
 
-#get data for hs011
-c06h <- tbl(pg, "c06h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs010) %>% collect(n = Inf)
-c07h <- tbl(pg, "c07h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs010) %>% collect(n = Inf)
-c08h <- tbl(pg, "c08h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs010) %>% collect(n = Inf)
-c09h <- tbl(pg, "c09h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs010) %>% collect(n = Inf)
-c10h <- tbl(pg, "c10h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs010) %>% collect(n = Inf)
-c11h <- tbl(pg, "c11h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
-c12h <- tbl(pg, "c12h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
-c13h <- tbl(pg, "c13h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
-c14h <- tbl(pg, "c14h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
-c15h <- tbl(pg, "c15h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                 hs011) %>% collect(n = Inf)
-c16h <- tbl(pg, "c16h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
-c17h <- tbl(pg, "c17h") %>% filter(hb020 %in% country) %>% select(hb010, hb020, hb030,  
-                                                                  hs011) %>% collect(n = Inf)
 
-hs010 <- bind_rows(c06h, c07h, c08h, c09h, c10h, c11h, c12h, c13h, c14h, c15h, c16h, c17h)
+#Dataset for 2012
+silc.06 <- silc.rph %>% filter(hb010==2012)
 
-silc.h <- left_join(silc.h, hs010 %>% select(hs011, hs010, hb010, hb030))
-rm(hs010, c07h, c08h, c09h, c10h, c11h, c12h, c13h, c14h, c15h, c16h, c17h)
+silc.06 <- silc.06 %>%  select(-c(hb010, hb030, px030, pl060, py050g, py010g, rb050, rb080, rb010, rb020, rb030, rb090, rx030,id_p, id_h, age, pb010, pb020, pb030, hx040, hx050))
 
-#dataset for 2005 
-silc.h05 <- silc.h %>% filter(hb010==2005)
-silc.h00 <- silc.h05 %>%  dplyr::select(-c(hb010, hb030))
+hh050 <- silc.06$hh050 == 2
+hs050 <- silc.06$hs050 == 2
+hs040 <- silc.06$hs040 == 2
+hs060 <- silc.06$hs060 == 2
+hs070 <- silc.06$hs070 == 2
+hs080 <- silc.06$hs080 == 2
+hs100 <- silc.06$hs100 == 2
+hs110 <- silc.06$hs110 == 2
+hs011 <- silc.06$hs011 == 2
 
-hh050 <- silc.h00$hh050 == 2
-hs050 <- silc.h00$hs050 == 2
-hs040 <- silc.h00$hs040 == 2
-hs060 <- silc.h00$hs060 == 2
-hs070 <- silc.h00$hs070 == 2
-hs080 <- silc.h00$hs080 == 2
-hs100 <- silc.h00$hs100 == 2
-hs110 <- silc.h00$hs110 == 2
-
-silc.h00c <-  bind_cols(hh050 = hh050, hs050=hs050,hs040 =hs040, hs060=hs060, hs070=hs070, hs080=hs080, hs100=hs100, hs110=hs110)
-View(silc.h00c)
+silc.h00c <-  silc.06 %>% bind_cols(hh050 = hh050, hs050=hs050,hs040 =hs040, hs060=hs060, hs070=hs070, hs080=hs080, hs100=hs100, hs110=hs110, hs011 = hs011)
 
 silc.h00c[is.na(silc.h00c)] <- 0
 
 silc.h00c <- silc.h00c  %>%
-  mutate(x = hh050+hs050+hs040+hs060+hs070+hs080+hs100+hs110)
+  mutate(x = hh0501+hs0501+hs0401+hs0601+hs0701+hs0801+hs1001+hs1101+hs0111)
 
-silc.h00c %>% filter(x>=4)
+silc.h00c <- silc.h00c %>% filter(x>=4)
 
-n05dp <- nrow(silc.h00c)
-n05 <- nrow(silc.h05)
+n06smd <- nrow(silc.h00c)
+n06 <- nrow(silc.06)
 
-sdm<-n05dp/n05
+smd06<-n06smd/n06
+
+
 
 #3) Population living in very low intensity (quasijobless) households ---------------------------------------
 
