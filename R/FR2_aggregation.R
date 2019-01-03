@@ -58,9 +58,7 @@ silc.rph <- silc.rph %>%
 
 #silc.rph <- silc.rph %>% mutate(y13true = (hy020 / hx050))
 
-#identical(silc.rph$y13, silc.rph$y13test)
-
-#silc.rph %>% group_by(rb010) %>% summarise(mean(y13 - y13test))
+#silc.rph %>% group_by(rb010) %>% summarise(mean(abs(y13 - y13true)))
 
 
 #remove superfluous columns
@@ -102,8 +100,7 @@ silc.p2 <- silc.rph20 %>% filter(y21 > 0, y22 > 0, y23 > 0)
 
 # Store to disk ------------------------------------------------------------
 
-#save(silc.p1, file="data/p1.rda",compress = 'xz')
+save(silc.p1, file="data/p1.rda",compress = 'xz')
 
-#save(silc.p2, file="data/p2.rda",compress = 'xz')
+save(silc.p2, file="data/p2.rda",compress = 'xz')
 
-# Fin ---------------------------------------------------------------------

@@ -23,8 +23,7 @@ silc.p <- tbl(pg, "pp") %>%
          py090g, py100g, py110g, py120g, py130g, py140g, px030) %>%
   collect(n = Inf)
 
-# py021g (company car) not available for FR
-# NA in first x years: py020g, py120g, py130g, py140g
+# py021 (company car) included in py010 (FR-specific)
 
 silc.h <- tbl(pg, "hh") %>%
   filter(hb020 %in% country) %>%
@@ -37,9 +36,6 @@ silc.r <- tbl(pg, "rr") %>%
   filter(rb020 %in% country) %>%
   select(rb010, rb020, rb030, rb050, rb080, rb090, rx030) %>%
   collect(n = Inf)
-
-#silc.d <- tbl(pg, "dd") %>% filter(db020 %in% country) 
-#%>% select(db010, db020, db030, db040, db090) %>% collect(n = Inf)
 
 #Download data 2014-2016
 
@@ -123,20 +119,6 @@ silc.r17 <- tbl(pg, "c17r") %>%
   select(rb010, rb020, rb030, rb050, rb080, rb090, rx030) %>%
   collect(n = Inf)
 
-#d
-
-#silc.d14 <- tbl(pg, "c14d") %>%  filter(db020 %in% country) %>% 
-#select(db010, db020, db030, db040, db090) %>% collect(n = Inf)
-
-#silc.d15 <- tbl(pg, "c15d") %>% filter(db020 %in% country) %>%
-#select(db010, db020, db030, db040, db090) %>% collect(n = Inf)
-
-#silc.d16 <- tbl(pg, "c16d") %>% filter(db020 %in% country) %>%
-#select(db010, db020, db030, db040, db090) %>% collect(n = Inf)
-
-#silc.d17 <- tbl(pg, "c16d") %>% filter(db020 %in% country) %>%
-#select(db010, db020, db030, db040, db090) %>% collect(n = Inf)
-
 # Merge all datasets -----------------------------------------
 
 #merge years
@@ -146,8 +128,6 @@ silc.p <- bind_rows(silc.p, silc.p14, silc.p15, silc.p16, silc.p17)
 silc.h <- bind_rows(silc.h, silc.h14, silc.h15, silc.h16, silc.h17)
 
 silc.r <- bind_rows(silc.r, silc.r14, silc.r15, silc.r16, silc.r17)
-
-#silc.d <- bind_rows(silc.d, silc.d14, silc.d15, silc.d16, silc.d17)
 
 #r, p: exclude observations with personal id = NA
 
@@ -173,22 +153,17 @@ silc.rp <- silc.rp %>%
 
 silc.h <- silc.h %>% mutate(id_h = paste0(hb010, hb030))
 
-#silc.d <- silc.d %>% mutate(id_h = paste0(db010, db030))
-
 # Merge rp with h
 
 silc.rph <- left_join(silc.rp, silc.h)
 
-#silc.pd <- left_join(silc.p, silc.d %>% select(id_h, db090)) #for hh-weight
 
-#silc.hd <- left_join(silc.h, silc.d)
-
-#remove superfluous columns
+# remove superfluous columns
 
 silc.rph <- silc.rph %>% select(-c(pb010, pb020, pb030, px030, hb010,
                                     hb020, hb030, rb030, rb080, rx030))
 
-#exclude observations with unknown hh-size
+# exclude observations with unknown hh-size
 
 silc.rph <- silc.rph %>% drop_na(hx040)
 
@@ -198,8 +173,4 @@ silc.rph[is.na(silc.rph)] <- 0
 
 # Store mutated datasets to disk --------------------------------
 
-#save(silc.rph, file="data/rph.rda",compress = 'xz')
-
-# Fin ---------------------------------------------------------------------
-
-message("Prepared data for ", country)
+save(silc.rph, file="data/rph.rda",compress = 'xz')
