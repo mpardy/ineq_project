@@ -8,7 +8,6 @@
 library(dplyr)
 library(survey)
 library(convey)
-#library(srvyr)
 library(eurostat)
 
 load("data/p1.rda")
@@ -52,7 +51,8 @@ mean.p1 <- svyby(~y11 + ~y12 + y13, ~rb010, svy.p1,
 
 mean.p1 <- left_join(mean.p1, vpi) %>% 
   group_by(rb010) %>% 
-  mutate_at(vars(statistic.y11 : statistic.y13), funs(. * 100 / VPI))
+  mutate_at(vars(statistic.y11 : statistic.y13), funs(. * 100 / VPI)) %>%
+  select(-c(VPI))
   
 
 # Median
@@ -64,7 +64,8 @@ median.p1 <- svyby(~y11 + ~y12 + y13, ~rb010, svy.p1,
 
 median.p1 <- left_join(median.p1, vpi) %>% 
   group_by(rb010) %>% 
-  mutate_at(vars(statistic1 : statistic3), funs(. * 100 / VPI))
+  mutate_at(vars(statistic1 : statistic3), funs(. * 100 / VPI)) %>%
+  select(-c(VPI))
 
 # Gini
 
@@ -74,19 +75,18 @@ gini12 <- svyby(~y12, ~rb010, svy.p1, svygini, keep.var = FALSE)
 
 gini13 <- svyby(~y13, ~rb010, svy.p1, svygini, keep.var = FALSE)
 
-gini.p1 <- as.data.frame(cbind(gini11[,1], gini11[,2],
+gini.p1 <- as.data.frame(cbind(gini11,
                                gini12[,2], gini13[,2]))
 
 # S80/S20
 
-s80_11 <- svyby(~y11, ~rb010, svy.p1, svyqsr)
+s80_11 <- svyby(~y11, ~rb010, svy.p1, svyqsr, keep.var = FALSE)
 
-s80_12 <- svyby(~y12, ~rb010, svy.p1, svyqsr)
+s80_12 <- svyby(~y12, ~rb010, svy.p1, svyqsr, keep.var = FALSE)
 
-s80_13 <- svyby(~y13, ~rb010, svy.p1, svyqsr)
+s80_13 <- svyby(~y13, ~rb010, svy.p1, svyqsr, keep.var = FALSE)
 
-s80.p1 <- as.data.frame(cbind(s80_11[,1], s80_11[,2], 
-                              s80_12[,2], s80_13[,2]))
+s80.p1 <- as.data.frame(cbind(s80_11, s80_12[,2], s80_13[,2]))
 
 # Top 10% share
 
@@ -125,7 +125,9 @@ topden <- svyby(~y13, ~rb010, svy.p1, svytotal)
 
 top13 <- topnum / topden
 
-top.p1 <- as.data.frame(cbind(top11[,2], top12[,2], top13[,2]))
+rb010 <- c(2004 : 2017)
+
+top.p1 <- as.data.frame(cbind(rb010, top11[,2], top12[,2], top13[,2]))
 
 
 ## P2: PARTIAL SHARING OF RESOURCES, RESTRICTED SAMPLE (>=20 YEARS)---------
@@ -140,7 +142,8 @@ mean.p2 <- svyby(~y21 + ~y22 + y23, ~rb010, svy.p2,
 
 mean.p2 <- left_join(mean.p2, vpi) %>% 
   group_by(rb010) %>% 
-  mutate_at(vars(statistic.y21 : statistic.y23), funs(. * 100 / VPI))
+  mutate_at(vars(statistic.y21 : statistic.y23), funs(. * 100 / VPI)) %>%
+  select(-c(VPI))
 
 # Median
 
@@ -151,7 +154,8 @@ median.p2 <- svyby(~y21 + ~y22 + y23, ~rb010, svy.p2,
 
 median.p2 <- left_join(median.p2, vpi) %>% 
   group_by(rb010) %>% 
-  mutate_at(vars(statistic1 : statistic3), funs(. * 100 / VPI))
+  mutate_at(vars(statistic1 : statistic3), funs(. * 100 / VPI)) %>%
+  select(-c(VPI))
 
 #Gini
 
@@ -161,8 +165,7 @@ gini22 <- svyby(~y22, ~rb010, svy.p2, svygini, keep.var = FALSE)
 
 gini23 <- svyby(~y23, ~rb010, svy.p2, svygini, keep.var = FALSE)
 
-gini.p2 <- as.data.frame(cbind(gini21[,1], gini21[,2],
-                               gini22[,2], gini23[,2]))
+gini.p2 <- as.data.frame(cbind(gini21, gini22[,2], gini23[,2]))
 
 # S80/S20
 
@@ -172,7 +175,7 @@ s80_22 <- svyby(~y22, ~rb010, svy.p2, svyqsr)
 
 s80_23 <- svyby(~y23, ~rb010, svy.p2, svyqsr)
 
-s80.p2 <- as.data.frame(cbind(s80_21[,1], s80_21[,2], 
+s80.p2 <- as.data.frame(cbind(s80_21[,2], 
                               s80_22[,2], s80_23[,2]))
 
 # Top 10% share
@@ -212,13 +215,42 @@ top23 <- topnum / topden
 
 top.p2 <- as.data.frame(cbind(top21[,2], top22[,2], top23[,2]))
 
-## Overview ---------------------------------------------------
-
-var <-c("Mean", "Median", "Gini","P80/20","Top 10% share")
-
-inc <- c("Pre-tax factor income","Pre-tax national income", 
-                    "Post-tax disposable income")
+## Summary Dataframes -----------------------------------------------------
 
 # P1: EQUAL SHARING, WHOLE SAMPLE
 
+table.p1 <- list(mean.p1, median.p1, gini.p1, s80.p1, top.p1) %>% 
+  reduce(left_join, by = "rb010") %>%
+  round(digits = 4) %>%
+  as.data.frame()
+
+row <- as.data.frame(c("Year",
+         "Mean pre-tax factor income", 
+         "Mean pre-tax national income", 
+         "Mean disposable income",
+         "Median pre-tax factor income",
+         "Median pre-tax national income",
+         "Median disposable income",
+         "Gini pre-tax factor income",
+         "Gini pre-tax national income",
+         "Gini disposable income",
+         "S80/S20 pre-tax factor income",
+         "S80/S20 pre-tax national income",
+         "S80/S20 disposable income",
+         "Top 10% share pre-tax factor income",
+         "Top 10% share pre-tax national income",
+         "Top 10% share disposable income"))
+
+rownames(table.p1) <- row
+
+
 # P2: PARTIAL SHARING, RESTRICTED SAMPLE
+
+table.p2 <- list(mean.p2, median.p2, gini.p2, s80.p2, top.p2) %>% 
+  reduce(left_join, by = "rb010") %>%
+  round(digits = 4) %>%
+  as.data.frame()
+
+rownames(table.p2) <- row
+
+
