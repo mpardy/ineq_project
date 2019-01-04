@@ -133,36 +133,48 @@ Der Bericht der staatlichen französischen Statistikbehörde INSEE, der jedes Ja
 ## Daten
 Um die Einkommensungleichheit und die Entwicklung von Armut in Frankreich im Zeitverlauf sichtbar zu machen, werden die Daten der EU-SILC (European Union Statistics on Income and Living Conditions) analysiert. Die Daten werden durch standardisierte jährliche Erhebungen innerhalb der EU zum Thema Einkommen und Lebensbedingungen erhoben, wodurch die Daten EU-weit vergleichbar sind. Dabei werden ausschließlich Personen befragt, die in Privathaushalten leben. Da der Schwerpunkt auf Einkommen liegt und detaillierte Daten vorhanden sind, bietet sich die Beurteilung der Einkommensverteilung und sozialen Eingliederung in Frankreich durch EU-SILC Daten an.[@EurostatEUSILC]
 
-Trotz der EU.weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gtünden allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
+Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gtünden allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
 
-Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden -- überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt?
+Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden -- überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
 
 
 ## Indikatoren
 
 ### Einkommensverteilung in Frankreich
-Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
 
-allgemeine einführung, unterschiedliche Konzepte erklären, Fokus auf verfügbarem Äquivalenzeinkommen, da dieses für die Armutsentwicklung am aussagekräftigsten ist
+
+allgemeine Einführung, unterschiedliche Konzepte erklären, Fokus auf verfügbarem Äquivalenzeinkommen, da dieses für die Armutsentwicklung am aussagekräftigsten ist
 
 #### Median und Mittelwert
 
-Di Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. 
+xxx Median und Mittelwert erklären
+
+Die Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. 
 Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkommen in Frankreich von 2004 bis 2017 angestiegen ist. So stieg das mittlere Jahreseinkommen eines äqivalenten Haushaltsmitglieds von 2004 bis 2016 von rund 18.550€ auf 22.020€ an. Das Durchschnittseinkommen stieg noch stärker an und liegt zudem deutlich über dem Medianeinkommen, was für eine rechtsschiefe Einkommensverteilung spricht. (prüfen, ob relativer Gap zwischen Mean und Median gewachsen)
 
-Auffallend ist zudem, dass das Medianeinkommen von 2009 - 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen werden gemeinhin mit den Folgen der Wirtschafts- und Finanzkrise in Verbindung gebracht (Quelle) 
-
--> BIP-Entwicklung kurz erwähnen
+Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen stehen mit der Wirtschafts- und Finanzkrise 2008 in Verbindung, im Schatten derer Frankreich in die Rezession rutschte: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein (von plus 2,34% in 2007 auf minus 2.9% in 2009) Dies wirkte sich auf die Einkommen privater Haushalte negativ aus. [@EurostatGDP]
 
 
 #### Gini-KOeffizient
 
+Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
 
 
+#### S80/S20
 
-#### S8/S20
+
 
 #### Anteil der Top 10%
+
+Martina
+
+vom Garbinti-Paper:
+
+This sharp rise of very top incomes since the 1980s is due both to top capital incomes and top labour incomes. Regarding the rise of top capital incomes, one should distinguish between two effects: 
+•	the rise of the macroeconomic capital share on the one hand (an evolution that is due to a combination of economic and institutional factors, including the decline of labour bargaining power and the lift of rent control, and that was reinforced by corporate privatization policies); and 
+•	the rise of wealth concentration on the other hand.
+
+Regarding the rise of top labour incomes, it is worth stressing that it occurred only at the very top (i.e. above the 95th percentile) and mostly within the top 1% and top 0.1%. It is difficult for standard explanations based upon technical change and changing supply and demand of skills to fully explain this concentration of rising inequality at the very top. It seems more promising to stress the role of institutional factors governing pay setting processes for top managerial compensation, including corporate governance, the decline of unions and collective bargaining processes, and the drop in top income tax rates (see Piketty et al. 2014).
 
 
 ### Armutsentwicklung in Frankreich
