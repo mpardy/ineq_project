@@ -266,8 +266,7 @@ top.p2 <- top.p2 %>%
 indicators.p1 <- list(mean.p1, median.p1, gini.p1, s80.p1, top.p1) %>% 
   reduce(left_join, by = "rb010") %>%
   round(digits = 4) %>%
-  rename(Year = rb010) %>%
-  as.matrix()
+  rename(Year = rb010)
 
 
 # P2: PARTIAL SHARING, RESTRICTED SAMPLE
