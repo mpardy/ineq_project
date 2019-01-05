@@ -19,7 +19,7 @@
 #1) Use laeken package using y13
 library(laeken)
 
-silc.p105 <- silc.p1 %>% filter(rb010 > 2005)
+silc.p105 <- silc.p1 %>% filter(rb010 > 2006)
 
 arop <- arpr(data$y13, weights=data$rb050, years=data$rb010)
 arop
@@ -41,31 +41,55 @@ arop
 
 # age >=18 
 
-data18 <- data %>% filter(age>=18)
+data18 <- silc.p105 %>% filter(age>=18)
 arop1 <- arpr (data$y13, weights=data$rb050, breakdown = data$rb090, years=data$rb010)
 arop1
 
 
 #1b) AGE:  At risk of poverty rate  ----------------------------------------------------
 
+#AGE: <18, 18-64, >64
+
 #Prepare data
-data0 <- data %>% subset(age<18)
-data1865  <- data %>% subset(age >= 18 & age <= 64)
-data65 <- data %>% subset(age>64)
+silc.p0 <- silc.p105 %>% filter(age<18)
+silc.p1864  <- silc.p105 %>% filter(age >= 18 & age <= 64)
+silc.p65 <- silc.p105 %>% filter(age>64)
 
 # At risk of poverty rate aged 0-17 
-arop2 <- arpr(data0$y13, weights=data0$rb050, years=data0$rb010)
+arop2 <- arpr(silc.p0$y13, weights=silc.p0$rb050, years=silc.p0$rb010)
 arop2
 
 # At risk of poverty rate aged 18-64
-arop3 <- arpr(data1865$y13, weights=data1865$rb050, years=data1865$rb010)
+arop3 <- arpr(silc.p1864$y13, weights=silc.p1864$rb050, years=silc.p1864$rb010)
 arop3
 
 # At risk of poverty rate aged 65+
-arop4 <- arpr(data65$y13, weights=data65$rb050, years=data65$rb010)
+arop4 <- arpr(silc.p65$y13, weights=silc.p65$rb050, years=silc.p65$rb010)
 arop4
 
+------------------------------
+  
+#AGE: 0-5, 6-11, 12-17
 
+#Prepare data
+  
+silc.p11  <- silc.p105 %>% filter(age >= 6 & age <= 11)
+silc.p17  <- silc.p105 %>% filter(age >= 12 & age <= 17)
+silc.p5 <- silc.p105 %>% filter(age<6)
+
+# At risk of poverty rate aged 0-5
+arop5 <- arpr(silc.p5$y13, weights=silc.p5$rb050, years=silc.p5$rb010)
+arop5
+
+# At risk of poverty rate aged 6-11
+arop6 <- arpr(silc.p11$y13, weights=silc.p11$rb050, years=silc.p11$rb010)
+arop6
+
+# At risk of poverty rate aged 12-17
+arop7 <- arpr(silc.p17$y13, weights=silc.p17$rb050, years=silc.p17$rb010)
+arop7
+
+  
 #2) Severe material deprivation rate ------------------------------------------------------------------------
 
 "country" <- "FR"
@@ -110,8 +134,3 @@ n06 <- nrow(silc.06)
 
 smd06<-n06smd/n06
 
-
-
-#3) Population living in very low intensity (quasijobless) households ---------------------------------------
-
-#People aged 0-59, living in households, where working-age adults (18-59) work less than 20% of their total work potential during the past year
