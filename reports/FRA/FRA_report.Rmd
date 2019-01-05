@@ -138,12 +138,26 @@ Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspe
 Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden -- überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
 
 
+## Konzepte
+
+Zur Analyse der Einkommensverteilung in Frankreich werden drei verschiedene Einkommensaggregate herangezogen, die nun näher erläutert werden. Das Faktoreinkommen vor Steuern entspricht der Summe aller Erwerbs- und Kapitaleinkommen eines Jahres. Dieses Konzept klammert also das Steuer- und Sozialversicherungssystem eines Landes aus, was nützlich sein kann, um etwa die Verteilung von Löhnen innerhalb der Erwerbsbevölkerung zu begutachten. 
+Problematisch am Faktoreinkommen ist jedoch, dass etwa pensionierte Personen typischerweise über ein sehr kleines Faktoreinkommen verfügen. Steigt also der Anteil älterer Personen an der Gesamtbevölkerung eines Landes, werden dessen Ungleichheitsmaße auf Basis des Faktoreinkommens automatisch größer. Dieser Umstand kann Vergleiche über Jahre bzw. Staaten hinweg verzerren. [@Piketty2018]
+
+Das Nationaleinkommen vor Steuern entspricht dem Faktoreinkommen zuzüglich Arbeitslosenbezüge und Pensionszahlungen. Andere Transfer- und Steuerzahlungen bleiben aber weiterhin unberücksichtigt. Durch das Einbeziehen von arbeitsbezogenen Transfers wird die beim Faktoreinkommen auftretende Verzerrung durch veränderte Altersstrukturen umgangen. Das Nationaleinkommen vor Steuern wird naturgemäß durch Reformen im Bereich der Arbeitslosen- und Pensionsversicherung verzerrt, was allerdings durch einen Vergleich mit dem Faktoreinkommen vor Steuern erkenntlich gemacht werden kann.
+
+Das verfügbare Einkommen nach Steuern entspricht dem Nationaleinkommen vor Steuern, zuzüglich aller weiteren monetären Transfers und abzüglich aller direkten Steuern. Dieses Konzept ist von allen drei vorgestellten Aggregaten zur Messung der Armutsgefährdungsquote am besten geeignet, da insbesondere Personen am unteren Ende der Einkommensverteilung auf staatliche Transfers angewiesen sind, die im Zuge der beiden Vorsteuer-Aggregate nicht bzw. nicht vollständig berücksichtigt werden. Die Verteilung des verfügbaren Einkommens wird daher im Fokus dieser Arbeit stehen. Wertvolle Einblicke kann zudem eine Gegenüberstellung des verfügbaren Einkommens mit den Vorsteuer-Aggregaten liefern, da sie das Ausmaß der Umverteilung durch den Staat wiedergibt.
+
+Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, müssen zudem Annahmen zur Aufspaltung von Haushalts- in Personeneinkommen getroffen werden. Hierfür werden zwei Konzepte angewandt: In Anlehnung an Eurostat werden alle Personen jeglichen Alters in das Sample aufgenommen. Dann werden alle Einkommen eines Haushalts addiert und gleichmäßig auf die äquivalenten Haushaltsmitglieder aufgeteilt. Es wird also angenommen, dass alle Haushaltsmitglieder in gleichem Maße vom Haushaltseinkommen zehren. Zudem werden mithilfe des Äquivalenzschlüssels impliziert, dass Haushalte gewisse Größenvorteile haben. [@Eurostatmethod]
+
+Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem wird angenommen, dass etwa eine nicht erwerbstätige Frau nicht im gleichen Ausmaß vom Gehalt ihres Mannes profitiert wie er selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zur Analyse von Geschlechterunterschieden nützlich sein, um nur ein Beispiel zu nennen. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
+
+
 ## Indikatoren
 
-### Einkommensverteilung in Frankreich
+### Einführung
 
+xxx
 
-allgemeine Einführung, unterschiedliche Konzepte erklären, Fokus auf verfügbarem Äquivalenzeinkommen, da dieses für die Armutsentwicklung am aussagekräftigsten ist
 
 #### Median und Mittelwert
 
@@ -155,7 +169,7 @@ Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkomme
 Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen stehen mit der Wirtschafts- und Finanzkrise 2008 in Verbindung, im Schatten derer Frankreich in die Rezession rutschte: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein (von plus 2,34% in 2007 auf minus 2.9% in 2009) Dies wirkte sich auf die Einkommen privater Haushalte negativ aus. [@EurostatGDP]
 
 
-#### Gini-KOeffizient
+#### Gini-Koeffizient
 
 Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
 
