@@ -1,26 +1,22 @@
 ---
 title: "Einkommensverteilung in Frankreich"
-author: "Julia Mathe und Martina Pardy""
-date: "`r format(Sys.time(), "%d %B, %Y")`"
-output:
-  html_document:
-    df_print: paged
-    toc: yes
+subtitle: "2063 - Ökonomie der Verteilung"
+author: "Julia Mathe & Martina Pardy"
+abstract:  "Dieses Dokument stellt einige Funktionen von Rmarkdown vor und bietet eine simple Grundstruktur für Länder-Reports."
+keywords: "a, b, c"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output: 
   pdf_document:
-    includes:
+    latex_engine: xelatex
+    toc: true
+    includes: 
       in_header: header.tex
-    toc: yes
-keywords: a, b, c
 bibliography: references.bib
-subtitle: 2063 - Ökonomie der Verteilung
-abstract: Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen
-  Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich Einkommen
-  in Frankreich von 2004 bis 2017 generell entwickelt hat, und dann der Fokus auf
-  dessen nationale Armutsentwicklung gelegt werden. Add more
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+message = FALSE
 ```
 
 \newpage
@@ -53,7 +49,6 @@ LaTeX Formeln inline: ($e = mc^2$) und:
 
 $$\hat{\beta} = (X'X)^{-1}X'Y$$
 
-![Bilder einfügen (xkcd)](img/xkcd_comparison.png){width=60%}
 
 [Links einfügen (Bildquelle)](https://what-if.xkcd.com/118/)
 
@@ -100,7 +95,6 @@ knitr::kable(table, caption = "Mit Optionen")
 ```
 
 Horizontale Linien:
-
 ---
 
 \newpage
@@ -143,7 +137,7 @@ Um die Einkommensungleichheit und die Entwicklung von Armut in Frankreich im Zei
 
 Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gtünden allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
 
-Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden -- überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
+Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden - überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
 
 
 ## Konzepte
@@ -159,7 +153,7 @@ Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, 
 
 Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem handelt es sich um ein individualistisches Einkommenskonzept, das auf der Annahme basiert, dass etwa eine nicht erwerbstätige Frau in einem geringeren Ausmaß vom Gehalt ihres Mannes profitiert als dieser selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zum Beispiel zur Analyse von Geschlechterunterschieden nützlich sein. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
 
-Abschließend soll angemerkt werden, dass im Zuge der Datenaufbereitung alle Personen, die ein Einkommen von null Euro oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewährleistet
+Abschließend soll angemerkt werden, dass im Zuge der Datenaufbereitung alle Personen, die ein Einkommen von null Euro oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewaehrleistet
 
 dadurch werden alle Personen, die kein Faktoreinkommen haben, aus dem Sample genommen - auch für die Analysen auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens. bla
 
@@ -190,18 +184,17 @@ Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkomme
 
 Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdienen. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Das gesamte Einkommen wird innerhalb eines Haushalts über alle Mitglieder gleich verteilt. Über den gesamten Betrachtungszeitraum zeigt sich ein Anstieg des Anteils der Top 10%, unabhängig vom Einkommenskonzept und das Faktoreinkommen weist durchgehend den höchsten Wert auf. Der höchste Zuwachs wird zu Beginn der Periode, im Besonderen im Jahr 2007 verzeichnet. Seit den 1980er Jahren wurden in Frankreich mehrfach Steuerreformen durchgeführt, welche die 14 Tarifstufen auf 7 reduziert haben. Dazu zählt jene die den höchste Steuersatz im Jahr 2006 auf 48,09% und 2007 auf 40% herabgesetzt hat. 
 
-Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdient. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Über den gesamten Betrachtungszeitraum zeigt sich ein Anstieg des Anteils der Top 10%, unabhängig vom Einkommenskonzept. Das Faktoreinkommen weist dahin durchgehend den höchsten Wert auf. 
+Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdienen. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Das gesamte Einkommen wird innerhalb eines Haushalts über alle Mitglieder gleich verteilt. Über den gesamten Betrachtungszeitraum zeigt sich ein Anstieg des Anteils der Top 10%, unabhängig vom Einkommenskonzept und das Faktoreinkommen weist durchgehend den höchsten Wert auf. Der höchste Zuwachs wird zu Beginn der Periode, im Besonderen im Jahr 2007 verzeichnet. Seit den 1980er Jahren wurden in Frankreich mehrfach Steuerreformen durchgeführt, welche die vierzehn Tarifstufen auf sieben reduziert haben. Dazu zählen jene die den höchsten Steuersatz im Jahr 2006 auf 48,09% und 2007 auf 40% herabgesetzt hat. [@InstitutePolicy]
 
 ![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/top10plot.png){width=90%}
 
+
+Garbinti, Goupille-Lebret und Piketty (2018) führen das Ansteigen der Top Einkommen, welches seit den 1980er Jahren begonnen hat auf folgende Effekte zurück: Ökonomische und institutionelle Faktoren wie die sinkende Einflussnahme bei Tarifverträgen und generell von Gewerkschaften, sowie die Zunahme der Vermögenskonzentration. Diese Faktoren sollen die Entwicklung der Top Einkommen, jene ab dem 95.Perzentil, maßgeblich beeinflusst haben. Zwischen 2008 und bis 2012 soll der Anteil der Top 10% jedoch auf relativ konstantem Level geblieben sein. [@Piketty2014] 
+
+Laut der der mithilfe von SILC-Daten errechneten Einkommenskonzepten zeigt sich jedoch ein anderes Bild, der Anteil der Top 10% steigt kontinuierlich von 2005 bis 2017 an. Während ein gewisser Anstieg durch die oben beschrieben Änderungen begründet werden, lässt sich nicht das Ausmaß und die Dauer des Anstiegs erklären. Ein möglicher Grund dafür könnte in der Veränderung von Variablen, die zur Berechnung der Einkommen verwendet wurden sein, oder weitere Probleme aufgrund der Datenlage.
+
 [@Piketty2014]
-vom Garbinti-Paper:
 
-This sharp rise of very top incomes since the 1980s is due both to top capital incomes and top labour incomes. Regarding the rise of top capital incomes, one should distinguish between two effects: 
-the rise of the macroeconomic capital share on the one hand (an evolution that is due to a combination of economic and institutional factors, including the decline of labour bargaining power and the lift of rent control, and that was reinforced by corporate privatization policies); and 
-the rise of wealth concentration on the other hand.
-
-Regarding the rise of top labour incomes, it is worth stressing that it occurred only at the very top (i.e. above the 95th percentile) and mostly within the top 1% and top 0.1%. It is difficult for standard explanations based upon technical change and changing supply and demand of skills to fully explain this concentration of rising inequality at the very top. It seems more promising to stress the role of institutional factors governing pay setting processes for top managerial compensation, including corporate governance, the decline of unions and collective bargaining processes, and the drop in top income tax rates (see Piketty et al. 2014).
 
 
 ### Armutsentwicklung in Frankreich
