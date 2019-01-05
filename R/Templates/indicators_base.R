@@ -85,6 +85,7 @@ svytotal(~hy010, subset(silc.hd.svy, db020 == country & hy010 >=
                           as.numeric(svyquantile(~hy010, silc.hd.svy, quantile = 0.9)))) /
   svytotal(~hy010,subset(silc.hd.svy, db020 == country))
 
+
 # Gini Coefficient
 #
 svygini(~total.inc, silc.pd.svy)
