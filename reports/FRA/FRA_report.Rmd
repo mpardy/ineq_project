@@ -154,7 +154,7 @@ Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkomme
 Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen stehen mit der Wirtschafts- und Finanzkrise 2008 in Verbindung, im Schatten derer Frankreich in die Rezession rutschte: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein (von plus 2,34% in 2007 auf minus 2.9% in 2009) Dies wirkte sich auf die Einkommen privater Haushalte negativ aus. [@EurostatGDP]
 
 
-#### Gini-KOeffizient
+#### Gini-Koeffizient
 
 Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
 
@@ -164,6 +164,8 @@ Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkomme
 
 
 #### Anteil der Top 10%
+
+![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/plottop10.png){width=90%}
 
 Martina
 
@@ -187,11 +189,8 @@ In Frankreich gelten 12,3% der Bevölkerung laut der Armutsgefährdungsquote als
 
 ![Armutsgefährdungsquote in Frankreich, 2007-2017](img/povertyplot1.png){width=90%}
 
-Unterschied nach Geschlecht: Frauen im Durchschnitt mehr von Armut bedroht als Männer. 
-Jahr 2007: Frauen 12,9% & Männer 11,9%
-Jahr 2012: Frauen 14,2% & Männer 12,5%
-- lässt darauf schließen, dass von dem Anstieg der gesamten Armutsgefährdungsquote von 2010-2012 von mehr Frauen betroffen waren - von Krise/schweren Rezession Frauen stärker betroffen - Frauen öfter atypisch beschäftigt? check
-Haushaltseinkommen und individuelles Einkommen gleich auf alle Mitglieder aufgeteilt (partial sharing of resources), bei der Betrachtung  um sich den  Einkommen des HHes wird gleich auf alle HHmitglieder aufgeteilt, daher Unterschied ws eher durch Single HH verursacht (), Vermutung, dass Geschlechterunterschied noch größer bei partial sharing of resources
+Die Aufspaltung der Armutsgefährdungsquote nach Geschlecht ermöglicht die Analyse ob Männer oder Frauen im Durchschnitt mehr von Armut bedroht sind. Unabhängig davon, ob das gesamte Einkommen (Haushalts- und persönliches Einkommen) oder nur das Haushaltseinkommen auf dessen Mitglieder aufgeteilt werden, zeigt sich bezüglich der Richtung, aber auch des Ausmaßes ein konsistentes Bild: Im Durchschnitt liegt das verfügbare Äquivalenzeinkommen von Frauen häufiger unter dem Schwellenwert 60% des Medianeinkommens als jenes von Männer. Damit sind Frauen durchschnittlich stärker von Armut bedroht: Im Jahr 2007 waren 12,9% der Frauen und 11,9% der Männer in Frankreich armutgefährdet. Der stärkste Anstieg der Armutsgefährdungsquote zeigt sich von 2008-2012 und betrifft 14,2% der Frauen und 12,5% der Männer (2012). Dies könnte darauf hinweisen, dass von dem Anstieg der gesamten Armutsgefährdungsquote von 2008-2012 mehr Frauen betroffen waren. Bis 2017 sinkt der Anteil der Personen die von Armut gefährdet sind wieder ab und erreicht den Wert 12,1% für Männer und 12,7% der Frauen.
+
 
 ![Armutsgefährdungsquote nach Geschlecht in Frankreich, 2007-2017](img/povertyplot2.png){width=90%}
 
