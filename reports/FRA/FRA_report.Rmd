@@ -1,16 +1,22 @@
 ---
 title: "Einkommensverteilung in Frankreich"
-subtitle: "2063 - Ökonomie der Verteilung"
-author: "Julia Mathe & Martina Pardy"
-abstract: "Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich Einkommen in Frankreich von 2004 bis 2017 generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Add more"
-keywords: "a, b, c"
-date: '`r format(Sys.time(), "%d %B, %Y")`'
-output: 
+author: "Julia Mathe und Martina Pardy""
+date: "`r format(Sys.time(), "%d %B, %Y")`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
   pdf_document:
-    toc: true
-    includes: 
+    includes:
       in_header: header.tex
+    toc: yes
+keywords: a, b, c
 bibliography: references.bib
+subtitle: 2063 - Ã–konomie der Verteilung
+abstract: Dieser Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen
+  Einkommensverteilung dar. DafÃ¼r soll zuerst betrachtet werden, wie sich Einkommen
+  in Frankreich von 2004 bis 2017 generell entwickelt hat, und dann der Fokus auf
+  dessen nationale Armutsentwicklung gelegt werden. Add more
 ---
 
 ```{r setup, include=FALSE}
@@ -125,7 +131,7 @@ Die längste Betrachtung der Einkommensverteilung in Frankreich wird über den Z
 Eine Erklärung für den Anstieg der Top Einkommen bis 2007 bietet der Bericht des Institutes for Public Policy (2014), welcher untersucht wie sich die Einkommenssteuer über hundert Jahre hinweg in Frankreich entwickelt hat. Seit 1987 haben sich mehrere Änderungen gezeigt: Bis 1986 gab es in Frankreich 14 verschiedene Einkommenssteuertarife, die sich auf 7 zwischen 1994 und 2006 und auf 6 ab 2013 reduziert haben. Die Folge davon war, dass sich auch der Grenzsteuersatzan der Spitze verringert hat: Zwischen 1994 und 2006 betrug er noch 56,8% und sunk im Jahr 2007 auf 40% ab. [@INSEE] Zu dem selben Schluss kommen auch XX, die neben der Reduktion der Steuersätze auch die Abnahme des Einflusses von Gewerkschaften und Tarifverhandlungen, sowie die Rolle der Institutionen als Gründe für den Anstieg der Top Einkommen in Frankreich nennen.
 [@Piketty2014]
 
-Der Bericht der staatlichen französischen Statistikbehörde INSEE, der jedes Jahr erscheint und die Entwicklungen der Einkommens- und Vermögensverteilung zusammenfasst, kommt zum Ergebnis, dass Einkommensungleichheiten von 2008 bis 2015 auf einem relativen stabilen Level geblieben sind. Der Gini Koeffizient ist in dem Zeitraum leicht angestiegen, von 0,289 auf 0,292, sowie die 80/20 Ratio die von 4,3 auf 4,4. Die Publikation der staatlichen französischen Statistikbehörde basiert jedoch auf nationalen Daten,die nicht auf EU-Ebene harmonisiert sind, wie die EU-SILC Daten.
+Der Bericht der staatlichen französischen Statistikbehörde INSEE, der jährlich erscheint und die Entwicklungen der Einkommens- und Vermögensverteilung zusammenfasst, kommt zum Ergebnis, dass Einkommensungleichheiten von 2008 bis 2015 auf einem relativen stabilen Level geblieben sind. Der Gini-Koeffizient ist in dem Zeitraum leicht angestiegen, von 0,289 auf 0,292. Auch das S80/S20 Einkommensquintilverhältnis von 4,3 auf 4,4 gestiegen. Die Publikation der staatlichen französischen Statistikbehörde basiert jedoch auf nationalen Daten,die nicht, wie die EU-SILC Daten, auf EU-Ebene harmonisiert sind.
 
 
 # Methodologie
@@ -142,17 +148,17 @@ Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Defi
 ## Konzepte
 
 Zur Analyse der Einkommensverteilung in Frankreich werden drei verschiedene Einkommensaggregate herangezogen, die nun näher erläutert werden. Das Faktoreinkommen vor Steuern entspricht der Summe aller Erwerbs- und Kapitaleinkommen eines Jahres. Dieses Konzept klammert also das Steuer- und Sozialversicherungssystem eines Landes aus, was nützlich sein kann, um etwa die Verteilung von Löhnen innerhalb der Erwerbsbevölkerung zu begutachten. 
-Problematisch am Faktoreinkommen ist jedoch, dass etwa pensionierte Personen typischerweise über ein sehr kleines Faktoreinkommen verfügen. Steigt also der Anteil älterer Personen an der Gesamtbevölkerung eines Landes, werden dessen Ungleichheitsmaße auf Basis des Faktoreinkommens automatisch größer. Dieser Umstand kann Vergleiche über Jahre bzw. Staaten hinweg verzerren. [@Piketty2018]
+Problematisch am Faktoreinkommen ist jedoch, dass pensionierte Personen typischerweise über ein sehr kleines bzw. über gar kein Faktoreinkommen verfügen. Steigt also der Anteil älterer Personen an der Gesamtbevölkerung eines Landes, werden dessen Ungleichheitsmaße auf Basis des Faktoreinkommens automatisch größer. Dieser Umstand kann Vergleiche über Jahre bzw. Staaten hinweg verzerren. [@Piketty2018]
 
-Das Nationaleinkommen vor Steuern entspricht dem Faktoreinkommen zuzüglich Arbeitslosenbezüge und Pensionszahlungen. Andere Transfer- und Steuerzahlungen bleiben aber weiterhin unberücksichtigt. Durch das Einbeziehen von arbeitsbezogenen Transfers wird die beim Faktoreinkommen auftretende Verzerrung durch veränderte Altersstrukturen umgangen. Das Nationaleinkommen vor Steuern wird naturgemäß durch Reformen im Bereich der Arbeitslosen- und Pensionsversicherung verzerrt, was allerdings durch einen Vergleich mit dem Faktoreinkommen vor Steuern erkenntlich gemacht werden kann.
+Das Nationaleinkommen vor Steuern entspricht dem Faktoreinkommen zuzüglich Arbeitslosenbezüge und Pensionszahlungen. Andere Transfer- und Steuerzahlungen bleiben aber weiterhin unberücksichtigt. Durch das Einbeziehen von arbeitsbezogenen Transfers wird die beim Faktoreinkommen auftretende Verzerrung durch veränderte Altersstrukturen umgangen. Allerdings wird das Nationaleinkommen vor Steuern naturgemäß durch Reformen im Bereich der Arbeitslosen- und Pensionsversicherung verzerrt. Das kann aber durchaus einen gewünschten Effekt darstellen und durch einen Vergleich mit dem Faktoreinkommen vor Steuern erkenntlich gemacht werden.
 
-Das verfügbare Einkommen nach Steuern entspricht dem Nationaleinkommen vor Steuern, zuzüglich aller weiteren monetären Transfers und abzüglich aller direkten Steuern. Dieses Konzept ist von allen drei vorgestellten Aggregaten zur Messung der Armutsgefährdungsquote am besten geeignet, da insbesondere Personen am unteren Ende der Einkommensverteilung auf staatliche Transfers angewiesen sind, die im Zuge der beiden Vorsteuer-Aggregate nicht bzw. nicht vollständig berücksichtigt werden. Die Verteilung des verfügbaren Einkommens wird daher im Fokus dieser Arbeit stehen. Wertvolle Einblicke kann zudem eine Gegenüberstellung des verfügbaren Einkommens mit den Vorsteuer-Aggregaten liefern, da sie das Ausmaß der Umverteilung durch den Staat wiedergibt.
+Das verfügbare Einkommen nach Steuern entspricht dem Nationaleinkommen vor Steuern, zuzüglich aller weiteren monetären Transfers und abzüglich aller direkten Steuern. Dieses Konzept ist von allen drei vorgestellten Aggregaten zur Messung der Armutsgefährdungsquote am besten geeignet, da insbesondere Personen am unteren Ende der Einkommensverteilung auf staatliche Transfers angewiesen sind, die im Zuge der beiden Vorsteuer-Aggregate nicht vollständig berücksichtigt werden. Die Verteilung des verfügbaren Einkommens wird daher im Fokus dieser Arbeit stehen. Wertvolle Einblicke kann zudem eine Gegenüberstellung des verfügbaren Einkommens mit den Vorsteuer-Aggregaten liefern, da sie das Ausmaß der Umverteilung durch den Staat wiedergibt.
 
-Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, müssen zudem Annahmen zur Aufspaltung von Haushalts- in Personeneinkommen getroffen werden. Hierfür werden zwei Konzepte angewandt: In Anlehnung an Eurostat werden alle Personen jeglichen Alters in das Sample aufgenommen. Dann werden alle Einkommen eines Haushalts addiert und gleichmäßig auf die äquivalenten Haushaltsmitglieder aufgeteilt. Es wird also angenommen, dass alle Haushaltsmitglieder in gleichem Maße vom Haushaltseinkommen zehren. Zudem werden mithilfe des Äquivalenzschlüssels impliziert, dass Haushalte gewisse Größenvorteile haben. [@Eurostatmethod]
+Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, müssen zudem Annahmen zur Aufspaltung von Haushalts- in Personeneinkommen getroffen werden. Hierfür werden zwei Konzepte angewandt: In Anlehnung an Eurostat werden alle befragten Personen jeden Alters in das Sample aufgenommen. Dann werden alle Einkommen eines Haushalts addiert und gleichmäßig auf die äquivalenten Haushaltsmitglieder aufgeteilt. Es wird also angenommen, dass alle Haushaltsmitglieder in gleichem Maße vom Haushaltseinkommen zehren. Zudem impliziert der herangezogene Äquivalenzschlüssel, dass Haushalte gewisse Größenvorteile haben. [@Eurostatmethod]
 
-Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem wird angenommen, dass etwa eine nicht erwerbstätige Frau nicht im gleichen Ausmaß vom Gehalt ihres Mannes profitiert wie er selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zur Analyse von Geschlechterunterschieden nützlich sein, um nur ein Beispiel zu nennen. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
+Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem handelt es sich um ein individualistisches Einkommenskonzept, das auf der Annahme basiert, dass etwa eine nicht erwerbstätige Frau in einem geringeren Ausmaß vom Gehalt ihres Mannes profitiert als dieser selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zum Beispiel zur Analyse von Geschlechterunterschieden nützlich sein. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
 
-Abschließend soll angemerkt werden, dass
+Abschließend soll angemerkt werden, dass im Zuge der Datenaufbereitung alle Personen, die ein Einkommen von null Euro oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewährleistet
 
 dadurch werden alle Personen, die kein Faktoreinkommen haben, aus dem Sample genommen - auch für die Analysen auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens. bla
 
@@ -160,6 +166,7 @@ dadurch werden alle Personen, die kein Faktoreinkommen haben, aus dem Sample gen
 ## Indikatoren
 =======
 # Ergebnisse
+
 >>>>>>> 2b1ac9cfb9de1ac5f56d69500f0ae8a4db5ff7f5
 
 ### Einführung
@@ -190,7 +197,7 @@ Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkomme
 
 Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdient. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Über den gesamten Betrachtungszeitraum zeigt sich ein Anstieg des Anteils der Top 10%, unabhängig vom Einkommenskonzept. Das Faktoreinkommen weist dahin durchgehend den höchsten Wert auf. 
 
-![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/plottop10.png){width=90%}
+![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/top10plot.png){width=90%}
 
 Martina
 
