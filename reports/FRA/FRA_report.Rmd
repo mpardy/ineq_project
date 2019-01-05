@@ -152,6 +152,10 @@ Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, 
 
 Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem wird angenommen, dass etwa eine nicht erwerbstätige Frau nicht im gleichen Ausmaß vom Gehalt ihres Mannes profitiert wie er selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zur Analyse von Geschlechterunterschieden nützlich sein, um nur ein Beispiel zu nennen. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
 
+Abschließend soll angemerkt werden, dass
+
+dadurch werden alle Personen, die kein Faktoreinkommen haben, aus dem Sample genommen - auch für die Analysen auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens. bla
+
 
 ## Indikatoren
 =======
