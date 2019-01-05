@@ -1,8 +1,9 @@
 # Setup -------------------------------------------------------------------
 
 library(dplyr)
+
 if(!exists(c("country", "year"))) {
-  stop("Please specify country and year.")
+  stop("please specify country and year")
 }
 
 
@@ -26,7 +27,7 @@ silc.d <- tbl(pg, "dd") %>%
 
 silc.r <- tbl(pg, "rr") %>% 
   filter(rb020 %in% country & rb010 %in% year) %>%
-  select(rb010, rb020, rb030, rb050) %>%
+  select(rb010, rb020, rb030, rb050, rb080) %>%
   collect(n = Inf)
 
 # Create unique IDs for merging
