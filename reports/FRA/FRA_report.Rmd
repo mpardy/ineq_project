@@ -184,6 +184,8 @@ Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkomme
 
 #### Anteil der Top 10%
 
+Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdient. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Über den gesamten Betrachtungszeitraum zeigt sich ein Anstieg des Anteils der Top 10%, unabhängig vom Einkommenskonzept. Das Faktoreinkommen weist dahin durchgehend den höchsten Wert auf. 
+
 ![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/plottop10.png){width=90%}
 
 Martina
