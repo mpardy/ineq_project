@@ -10,39 +10,62 @@ library(ggplot2)
 
 #1) Mean and Median --------------------------------------------------------
 
-# Prepare data
-meanmedian <- left_join(median.p1, mean.p1)
-meanmedian <- meanmedian %>% rename(Mittelwert = statistic.y13, Median = statistic3)
-
-# Create plot
-ggplot1 <- ggplot(meanmedian, aes(x=rb010)) + 
-  geom_line(aes(y=Mittelwert, col = "Mittelwert")) + 
-  geom_line(aes(y=Median, col = "Median")) +
+ggplot1 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+  geom_line(aes(y = indicators.p1[,4], col = "Mittelwert")) + 
+  geom_line(aes(y = indicators.p1[,7], col = "Median")) +
   labs(title="Median und Mittelwert", 
-       subtitle="in Frankreich von 2004-2017", 
+       subtitle="des verfügbaren Äquivalenzeinkommen in Frankreich, 2004-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
-       y ="Verfügbares Äquivalenzeinkommen",
+       y ="reale Euro",
        x = "Jahre",
        col="Legende")
 
 ggplot1
 
-#2) Share Top 10% ----------------------------------------------------------
-        
-# Prepare data
-top11 <- top11 %>% mutate(rb010 = 2004:2017)
+# 2) Gini coefficient
 
-# Create plot
-ggplot2 <- ggplot(top11, aes(x=rb010)) + 
-  geom_line(aes(y=y11, col = "Anteil Top 10%")) + 
-  labs(title="Anteil der Top 10% am Gesamtbruttoeinkommen", 
-       subtitle="in Frankreich von 2004-2017", 
+ggplot2 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+  geom_line(aes(y = indicators.p1[,8], col = "Faktoreinkommen vor Steuern")) +
+  geom_line(aes(y = indicators.p1[,9], col = "Nationaleinkommen vor Steuern")) +
+  geom_line(aes(y = indicators.p1[,10], col = "verfügbares Äquivalenzeinkommen")) + 
+  labs(title="Gini Koeffizient", 
+       subtitle="des verfügbaren Äquivalenzeinkommen in Frankreich, 2004-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
-       y ="Anteil am Gesamteinkommen in %",
+       y ="Gini-Koeffizient",
+       x = "Jahre",
+       col = "Legende")
+
+ggplot2
+
+# 3) S80/S20
+
+ggplot3 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+  geom_line(aes(y = indicators.p1[,12], col = "Nationaleinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,13], col = "Verfügbares Einkommen")) + 
+  labs(title = "S80/S20 Einkommensquintilverhältnis", 
+       subtitle = "in Frankreich, 2004-2017", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       y ="S80/S20 Verhältnis",
        x = "Jahre",
        col="Legende")
 
-ggplot2
+ggplot3
+
+
+# 4) Anteil der Top 10%
+
+ggplot4 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+  geom_line(aes(y = indicators.p1[,14], col = "Faktoreinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,15], col = "Nationaleinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,16], col = "Verfügbares Einkommen")) + 
+  labs(title = "Anteil der Top 10%", 
+       subtitle = "am Gesamteinkommen in Frankreich, 2004-2017", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       y ="Anteil in %",
+       x = "Jahre",
+       col="Legende")
+
+ggplot4
         
 #3) At risk of poverty rate, TOTAL ------------------------------------------
 
@@ -51,7 +74,7 @@ arop <- data.frame(arop$value, arop$threshold)
 arop <- arop %>% mutate (rb010 = 2007:2017)
 
 # Create plot
-ggplot3 <- ggplot(arop, aes(x=rb010)) + 
+ggplot5 <- ggplot(arop, aes(x=rb010)) + 
   geom_line(aes(y=arop.value, color="Anteil Armutsgefaehrdung")) + 
   labs(title="Armutsgefaehrdungsquote", 
        subtitle="in Frankreich von 2007-2017", 
@@ -62,7 +85,7 @@ ggplot3 <- ggplot(arop, aes(x=rb010)) +
   scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   scale_y_continuous(limits=c(11,15), breaks=seq(11,15, by = 0.5))
 
-ggplot3
+ggplot5
 
 library(eurostat)
 
@@ -75,7 +98,7 @@ arop11 <- arop11 %>% filter(stratum==1) %>% rename("male"=value)
 arop1 <- left_join(arop12, arop11)
 
 # Create plot
-ggplot4 <- ggplot(arop1, aes(x=year)) + 
+ggplot6 <- ggplot(arop1, aes(x=year)) + 
   geom_line(aes(y=female, color="Armutsgefaehrdung Frauen")) +
   geom_line(aes(y=male, color="Armutsgefaehrdung Maenner")) +
   labs(title="Armutsgefaehrdungsquote nach Geschlecht", 
@@ -87,4 +110,4 @@ ggplot4 <- ggplot(arop1, aes(x=year)) +
   scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   scale_y_continuous(limits=c(10,15), breaks=seq(10,15, by = 1))
 
-ggplot4
+ggplot6

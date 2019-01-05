@@ -113,11 +113,11 @@ Horizontale Linien:
 
 ## Armutsentwicklung in Frankreich
 # ADD: Verbindung Armut und Einkommensungleichheit
-Mitte September 2018 verkündete der französische Präsident Emmanuel Macron Frankreichs Strategie gegen Armut. Acht Milliarden Euro sollen zur Verfügung gestellt werden, um Ungleichheiten zu verringern und die Armut innerhalb Frankreichs zu senken. Besonderer Fokus liegt dabei auf der Förderung von jungen Menschen, deren Ausbildung von früh an unterstützt werden soll. Der französische Präsident ist mehrfach unter Kritik geraten, da von seiner politischen Maßnahmen die reichere Bevölkerungsschicht profitiert, wie zum Beispiel durch die weitgehende Abschaffung der Vermögenssteuer. [@povertystrategy2018financial]
+Mitte September 2018 verkündete der französische Präsident Emmanuel Macron Frankreichs Strategie gegen Armut. Acht Milliarden Euro sollen zur Verfügung gestellt werden, um Ungleichheiten zu verringern und die Armut innerhalb Frankreichs zu senken. Besonderer Fokus liegt dabei auf der Förderung von jungen Menschen, deren Ausbildung von früh an unterstützt werden soll. Der französische Präsident ist mehrfach unter Kritik geraten, mit seinen politischen Maßnahmen die reichere Bevölkerungsschicht zu übervorteilen, wie zum Beispiel durch die weitgehende Abschaffung der Vermögenssteuer. [@povertystrategy2018financial]
 
 Die Verringerung von Armut und sozialer Ausgrenzung gehört als wichtiger Parameter zur Strategie Europa 2020, die es zum Ziel hat Beschäftigung und Wachstum in der EU bis zum Ende dieses Jahrzehnts zu fördern. Für die fünf Bereiche Armut, Forschung und Entwicklung, Klimawandel und Energie, Beschäftigung und Bildung wurden Zielvorgaben entwickelt, die über die Laufzeit gemessen und überprüft werden. Bezüglich Armut und sozialer Ausgrenzung wurde eine Verringerung von zumindest 20 Millionen betroffenen Menschen anvisiert. [@europkommission]
 
-Der Grund dafür ist, dass laut der Europäischen Kommission im Jahr 2016 23,5% der Bevölkerung der Europäischen Union und somit beinahe jede vierte Person von Armut und sozialer Ausgrenzung in der EU bedroht war. Dabei wird Armut und soziale Ausgrenzung nicht nur monetär, sondern als ein multi-dimensionales Konstrukt beschrieben. Es werden im Besonderen drei verschiedene Formen beschrieben, die neben monetärer Armut, gemessen als Armutsgefährdungsquote, auch noch den Grad der materiellen Deprivation sowie die Arbeitsintensität des Haushalts umfassen. Innerhalb der EU kommt die monetäre Armut im Jahr 2016 am häufigsten vor und betrifft 17,3% der Bevölkerung der Europäischen Union. Erhebliche materielle Deprivation dahingegend erfährt nur ein geringerer Anteil von 7,5%, und 10,5% weisen eine niedrige Arbeitsintensität auf. Die Quote der materiellen Deprivation ist verglichen zur Armutsgefährdungsquote und der niedrigen Arbeitsintensität EU-weit gefallen, und weist somit die größte Veränderung auf. Seit dem Jahr 2010 ist der Anteil der niedrigen Arbeitsintensität auf einem relativ konstanten Level geblieben. Dieser umfasst Personen, die im Alter von 0 bis 59 Jahre eine geringere Arbeitsintensität aufweisen. Eine Vollzeit Anstellung zu haben heißt jedoch nicht in jedem Fall, von Armut und sozialer Ausgrenzung verschont zu bleiben: Innerhalb der EU galten 2016 7,8%  trotz Vollzeitbeschäftigung als armutgefährdet. Im Vergleich zur OECD und somit anderen Industriestaaten, ist die monetäre Armut im Durchschnitt in den EU-Länder mit 17,3% relativ gering, währenddessen dieser Wert sich auf OECD-Ebene zwischen 20% und 25% bewegt. [@Eurostatindicator]
+Der Grund dafür ist, dass laut der Europäischen Kommission im Jahr 2016 23,5% der Bevölkerung der Europäischen Union und somit beinahe jede vierte Person von Armut und sozialer Ausgrenzung in der EU bedroht war. Dabei wird Armut und soziale Ausgrenzung nicht nur monetär, sondern als ein multi-dimensionales Konstrukt beschrieben. Es werden im Besonderen drei verschiedene Formen beschrieben, die neben monetärer Armut, gemessen als Armutsgefährdungsquote, auch noch den Grad der materiellen Deprivation sowie die Arbeitsintensität des Haushalts umfassen. Innerhalb der EU kommt die monetäre Armut im Jahr 2016 am häufigsten vor und betrifft 17,3% der Bevölkerung der Europäischen Union. Erhebliche materielle Deprivation dahingegend erfährt nur ein geringerer Anteil von 7,5%, und 10,5% weisen eine niedrige Arbeitsintensität auf. Die Quote der materiellen Deprivation ist verglichen zur Armutsgefährdungsquote und der niedrigen Arbeitsintensität EU-weit gefallen, und weist somit die größte Veränderung auf. Seit dem Jahr 2010 ist der Anteil der niedrigen Arbeitsintensität auf einem relativ konstanten Level geblieben. Dieser umfasst Personen, die im Alter von 0 bis 59 Jahre eine geringere Arbeitsintensität aufweisen. Eine Vollzeit Anstellung zu haben heißt jedoch nicht in jedem Fall, von Armut und sozialer Ausgrenzung verschont zu bleiben: Innerhalb der EU galten 2016 7,8%  trotz Vollzeitbeschäftigung als armutgefährdet. Im Vergleich zur OECD und somit anderen Industriestaaten, ist die monetäre Armut im Durchschnitt in den EU-Länder mit 17,3% relativ gering, während sich dieser Wert auf OECD-Ebene zwischen 20% und 25% bewegt. [@Eurostatindicator]
 
 # Literaturüberblick
 Die längste Betrachtung der Einkommensverteilung in Frankreich wird über den Zeitraum, von 1900-2014, mithilfe von Daten der Distributional National Accounts (DINA), welche National Accounts, Steuer- und  Umfragedaten vereint, von Garbinti, Goupille-Lebret und Piketty (2018) vorgenommen. Zu den relevanten Ergebnissen, welche die aktuelle Veränderung der Einkommensverteilung betrifft, gehört der relativ starke Anstieg der Top Einkommen seit den 1980er Jahren. Von 1983-2014 zeigt sich sowohl bei dem Arbeits- als auch dem Kapitaleinkommen ab dem 95. Perzentil ein  relativ starker  Anstieg,  der  bei  den  Top  1%  und  0,1%  am  größten  ist. Garbinti, Goupille-Lebret und Piketty (2018) zeigen auf, dass der Anteil am Gesamteinkommen der Top 1% von 1983 bis 2007 um mehr als 50% gestiegen ist, nämlich von weniger als 8% auf mehr als 12%. Während und nach der Wirtschafts- und Finanzkrise, zwischen 2008 und 2013, sinkt der Einkommensanteil der Top 10%, verbleibt jedoch auf einem höheren Niveau als zu Beginn der 1980er Jahre. Außerdem analysieren die Autoren die Entwicklung des Gender Pay Gap und kommen für das Jahr 2012 zu folgendem Ergebnis: Die Lohnunterschiede steigen mit zunehmendem Alter an. Mit 25 Jahren verdient ein Mann im Durchschnitt das 1.25-Fache von einer Frau. Im Alter von 65 Jahren, hat sich der Lohnunterschied deutlich vergrößert, da im Durchschnitt das Einkommen eines Mannes bei dem 1.64 fachen einer Frau liegt. Geschlechtspezifische Lohnunterschiede bleiben somit groß, auch wenn diese in den letzten Jahrzehnten signifikant gesunken sind. [@Piketty2018]
@@ -131,12 +131,50 @@ Der Bericht der staatlichen französischen Statistikbehörde INSEE, der jedes Ja
 # Methodologie
 
 ## Daten
-Um die Einkommensungleichheit und die Entwicklung von Armut in Frankreich im Zeitverlauf sichtbar zu machen, wird auf Grundlage der EU-SILC (European Union Statistics on Income and Living Conditions) Daten informiert. Die Daten werden durch standardisierte jährliche Erhebungen innerhalb der EU zum Thema Einkommen und Lebensbedingungen erhoben. Dabei werden ausschließlich Personen, die in Privathaushalten leben befragt. Da der Schwerpunkt auf Einkommen liegt und detaillierte Daten vorhanden sind, bietet sich die Beurteilung der Einkommensverteilung und sozialen Eingliederung in Frankreich durch EU-SILC Daten an.[@EurostatEUSILC]
+Um die Einkommensungleichheit und die Entwicklung von Armut in Frankreich im Zeitverlauf sichtbar zu machen, werden die Daten der EU-SILC (European Union Statistics on Income and Living Conditions) analysiert. Die Daten werden durch standardisierte jährliche Erhebungen innerhalb der EU zum Thema Einkommen und Lebensbedingungen erhoben, wodurch die Daten EU-weit vergleichbar sind. Dabei werden ausschließlich Personen befragt, die in Privathaushalten leben. Da der Schwerpunkt auf Einkommen liegt und detaillierte Daten vorhanden sind, bietet sich die Beurteilung der Einkommensverteilung und sozialen Eingliederung in Frankreich durch EU-SILC Daten an.[@EurostatEUSILC]
+
+Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gtünden allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
+
+Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden -- überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
 
 # Ergebnisse
 
 ### Einkommensverteilung in Frankreich
+
+
+allgemeine Einführung, unterschiedliche Konzepte erklären, Fokus auf verfügbarem Äquivalenzeinkommen, da dieses für die Armutsentwicklung am aussagekräftigsten ist
+
+#### Median und Mittelwert
+
+xxx Median und Mittelwert erklären
+
+Die Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. 
+Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkommen in Frankreich von 2004 bis 2017 angestiegen ist. So stieg das mittlere Jahreseinkommen eines äqivalenten Haushaltsmitglieds von 2004 bis 2016 von rund 18.550€ auf 22.020€ an. Das Durchschnittseinkommen stieg noch stärker an und liegt zudem deutlich über dem Medianeinkommen, was für eine rechtsschiefe Einkommensverteilung spricht. (prüfen, ob relativer Gap zwischen Mean und Median gewachsen)
+
+Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen stehen mit der Wirtschafts- und Finanzkrise 2008 in Verbindung, im Schatten derer Frankreich in die Rezession rutschte: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein (von plus 2,34% in 2007 auf minus 2.9% in 2009) Dies wirkte sich auf die Einkommen privater Haushalte negativ aus. [@EurostatGDP]
+
+
+#### Gini-KOeffizient
+
 Der Gini Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
+
+
+#### S80/S20
+
+
+
+#### Anteil der Top 10%
+
+Martina
+
+vom Garbinti-Paper:
+
+This sharp rise of very top incomes since the 1980s is due both to top capital incomes and top labour incomes. Regarding the rise of top capital incomes, one should distinguish between two effects: 
+•	the rise of the macroeconomic capital share on the one hand (an evolution that is due to a combination of economic and institutional factors, including the decline of labour bargaining power and the lift of rent control, and that was reinforced by corporate privatization policies); and 
+•	the rise of wealth concentration on the other hand.
+
+Regarding the rise of top labour incomes, it is worth stressing that it occurred only at the very top (i.e. above the 95th percentile) and mostly within the top 1% and top 0.1%. It is difficult for standard explanations based upon technical change and changing supply and demand of skills to fully explain this concentration of rising inequality at the very top. It seems more promising to stress the role of institutional factors governing pay setting processes for top managerial compensation, including corporate governance, the decline of unions and collective bargaining processes, and the drop in top income tax rates (see Piketty et al. 2014).
+
 
 ### Armutsentwicklung in Frankreich
 Um das Ausmaß und die Entwicklung der Armut und sozialen Ausgrenzung innerhalb von Frankreich zu beurteilen, werden die drei folgenden Hauptindikatoren verwendet: die Armutsgefährdungsquote, die Quote der materiellen Deprivation und die Rate der in Haushalten mit niedriger Erwerbsintensität lebenden Personen. Dabei wird im Folgenden eine Zeitreihenanalyse beginnend im Jahr 2004 bis 2017 durchgeführt und die Entwicklung sowie etwaige Veränderungen erforscht. Diese Messgrößen stellen jedoch nicht den Anspruch, die Armutsschichten in Frankreich vollständig darzustellen, da dafür eine umfangreichere Analyse notwendig wäre. Dennoch stellen die drei Indikatoren, die unterschiedliche Formen und Aspekte von Armut festhalten, in Kombination eine vernünftige Grundlage zur Beurteilung dar und gelten zu den EU Sozialindikatoren, anhand von welchen die Erreichung der Strategie Europa 2020 betreffend Armut und sozialer Ausgrenzung gemessen wird.
