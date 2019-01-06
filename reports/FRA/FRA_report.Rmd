@@ -11,6 +11,7 @@ output:
     toc: true
     includes: 
       in_header: header.tex
+lang: de-DE
 bibliography: references.bib
 ---
 
@@ -18,56 +19,6 @@ bibliography: references.bib
 ```{r setup, include=FALSE}
 message = FALSE
 ```
-
-\newpage
-
-# Rmarkdown Demonstration
-
-```{r, include=FALSE}
-cat("Ausgeführt, nichts angezeigt")
-```
-
-```{r, eval=FALSE}
-cat("Nicht ausgeführt, angezeigt")
-```
-
-```{r echo=FALSE}
-cat("Ausgeführt, Output angezeigt")
-```
-
-```{r}
-cat("Ausgeführt, alles angezeigt")
-```
-
-<!-- Kommentare im Dokument -->
-
-Text *kursiv* und **fett**.
-
-R-Code im Text: `r pi`
-
-LaTeX Formeln inline: ($e = mc^2$) und:
-
-$$\hat{\beta} = (X'X)^{-1}X'Y$$
-
-
-[Links einfügen (Bildquelle)](https://what-if.xkcd.com/118/)
-
-
-Block-Zitate:
-
-> "Don't quote me on that."
-
-Ungeordnete Listen:
-
-- Einkommen
-- Kapital
-
-Geordnete Listen:
-
-1. Zahlen
-3. sind
-9. egal
-
 
 \newpage
 
@@ -126,9 +77,11 @@ Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, 
 
 Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschlieﬂlich auf Haushaltsebene verfügbar ist (Ö). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (Ö) hinzugezählt. Es werden also keine Gröﬂenvorteile von Haushalten impliziert. Zudem handelt es sich um ein individualistisches Einkommenskonzept, das auf der Annahme basiert, dass etwa eine nicht erwerbstätige Frau in einem geringeren Ausmaß vom Gehalt ihres Mannes profitiert als dieser selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zum Beispiel zur Analyse von Geschlechterunterschieden nützlich sein. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
 
-ZUm Prozess der Datenaufbereitung soll angemerkt werden, dass alle Personen, die kein Einkommen oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewährleistet, dass alle Indikatoren, auch etwa die Quintilsverhältnisse, problemlos berechnet werden können und dass alle Indikatoren aller dreier Einkommensaggregate auf der gleichen Anzahl an Beobachtungen basieren. Unterschiede in der Anzahl an Beobachtungen treten somit nur zwischen dem Eurostat- und WID-Konzept auf, da letzteres auf Personen ab einem Alter von 20 Jahren eingeschränkt ist. Der Vorteil an dieser Vorgehensweise ist, dass die Indikatoren besser zueinander in Bezug gesetzt werden können. Der Nachteil ist jedoch, dass jene Personen, die etwa aufgrund von Pensionierung oder Arbeitslosigkeit kein Faktoreinkommen vor Steuern beziehen, aus dem Sample ausgeschlossen werden - das gilt auch für die Analyse auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens.
+Zum Prozess der Datenaufbereitung soll angemerkt werden, dass alle Personen, die kein Einkommen oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewährleistet, dass alle Indikatoren, auch etwa die Quintilsverhältnisse, problemlos berechnet werden können und dass alle Indikatoren aller dreier Einkommensaggregate auf der gleichen Anzahl an Beobachtungen basieren. Unterschiede in der Anzahl an Beobachtungen treten somit nur zwischen dem Eurostat- und WID-Konzept auf, da letzteres auf Personen ab einem Alter von 20 Jahren eingeschränkt ist. Der Vorteil an dieser Vorgehensweise ist, dass die Indikatoren besser zueinander in Bezug gesetzt werden können. Der Nachteil ist jedoch, dass jene Personen, die etwa aufgrund von Pensionierung oder Arbeitslosigkeit kein Faktoreinkommen vor Steuern beziehen, aus dem Sample ausgeschlossen werden - das gilt auch für die Analyse auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens.
 
 Die berechneten Indikatoren für die Periode von 2004 bis 2007 werden (vorerst) nicht ausgewiesen und diskutiert, da sie große Sprünge aufweisen. Diese Sprünge wirken unplausibel - es wird vermutet, dass sie aus Zeitreihenbrüchen in den Definitionen der von Eurostat bereitgestellten Daten resultieren. Auch etwaige Anpassungen der Personen- oder Haushaltsgewichte könnte dazu beigetragen haben, dass die berechneten Indikatoren nicht über den gesamten analysierten Zeitraum vergleichbar zu sein scheinen.
+
+# Ergebnisse
 
 ### Einkommensverteilung in Frankreich
 
@@ -165,14 +118,15 @@ Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der fr
 
 Garbinti, Goupille-Lebret und Piketty (2018) führen das Ansteigen der Top Einkommen, welches seit den 1980er Jahren begonnen hat auf folgende Effekte zurück: Ökonomische und institutionelle Faktoren wie die sinkende Einflussnahme bei Tarifverträgen und generell von Gewerkschaften, sowie die Zunahme der Vermögenskonzentration. Diese Faktoren sollen die Entwicklung der Top Einkommen, jene ab dem 95.Perzentil, maßgeblich beeinflusst haben. Zwischen 2008 und bis 2012 soll der Anteil der Top 10% jedoch auf relativ konstantem Level geblieben sein. [@Piketty2018] 
 
-Laut der der mithilfe von SILC-Daten errechneten Einkommenskonzepten zeigt sich jedoch ein anderes Bild, der Anteil der Top 10% steigt kontinuierlich von 2005 bis 2017 an. Während ein gewisser Anstieg durch die oben beschrieben Änderungen begründet werden, lässt sich nicht das Ausmaß und die Dauer des Anstiegs erklären. Ein möglicher Grund dafür könnte in der Veränderung von Variablen, die zur Berechnung der Einkommen verwendet wurden sein, oder weitere Probleme aufgrund der Datenlage.
+Laut der der mithilfe von SILC-Daten errechneten Einkommenskonzepten zeigt sich jedoch ein anderes Bild, der Anteil der Top 10% steigt kontinuierlich von 2005 bis 2017 an. Während ein gewisser Anstieg durch die oben beschrieben Änderungen begründet werden, lässt sich nicht das Ausmaß und die Dauer des Anstiegs erklären. Ein möglicher Grund dafür könnte in der Veränderung von Variablen, die zur Berechnung der Einkommen verwendet wurden sein, oder weitere Probleme aufgrund der Datenlage maßgebend für den Unterschied sein.
 
 
 ### Armutsentwicklung in Frankreich
-Um das Ausmaß und die Entwicklung der Armut und sozialen Ausgrenzung innerhalb von Frankreich zu beurteilen, werden die drei folgenden Hauptindikatoren verwendet: die Armutsgefährdungsquote, die Quote der materiellen Deprivation und die Rate der in Haushalten mit niedriger Erwerbsintensität lebenden Personen. Dabei wird im Folgenden eine Zeitreihenanalyse beginnend im Jahr 2004 bis 2017 durchgeführt und die Entwicklung sowie etwaige Veränderungen erforscht. Diese Messgrößen stellen jedoch nicht den Anspruch, die Armutsschichten in Frankreich vollständig darzustellen, da dafür eine umfangreichere Analyse notwendig wäre. Dennoch stellen die drei Indikatoren, die unterschiedliche Formen und Aspekte von Armut festhalten, in Kombination eine vernünftige Grundlage zur Beurteilung dar und gelten zu den EU Sozialindikatoren, anhand von welchen die Erreichung der Strategie Europa 2020 betreffend Armut und sozialer Ausgrenzung gemessen wird.
+Um das Ausmaß und die Entwicklung der Armut und sozialen Ausgrenzung innerhalb von Frankreich zu beurteilen, werden die zwei folgenden Hauptindikatoren verwendet: die Armutsgefährdungsquote und die Quote der materiellen Deprivation. Dabei wird im Folgenden eine Zeitreihenanalyse beginnend im Jahr 2004 bis 2017 durchgeführt und die Entwicklung sowie etwaige Veränderungen erforscht. Diese Messgrößen stellen jedoch nicht den Anspruch, die Armutsschichten in Frankreich vollständig darzustellen, da dafür eine umfangreichere Analyse notwendig wäre. Dennoch stellen die beiden Indikatoren eine Teil jener EU-Sozialindikatoren dar, anhand von welchen die Erreichung der Strategie Europa 2020 betreffend Armut und sozialer Ausgrenzung gemessen wird.
+
+#### Armutsgefährdungsquote
 
 Die Armutsgefährdungsquote beschreibt den Anteil der Personen, die aufgrund ihres relativ geringen Einkommens von Armut und sozialer Ausgrenzung bedroht sind. Der Indikator stellt ein monetäres und relatives Maß zur Messung von Armut dar und weist häufig, aber nicht zwingend, auf einen niedrigen Lebensstandard hin. Die Messgröße für die Armutsgefährdungsquote ist das verfügbare Äquivalenzeinkommen einer Person. Dies entspricht jenem Einkommen des Haushaltseinkommens (nach Steuern und anderen Abgaben), welches durch die einzelnen Haushaltsmitglieder aufgeteilt und gewichtet wird, und somit jeder einzelnen Person des Haushalts zur Verfügung steht. Sobald das Äquivalenzeinkommen den Schwellenwert, der üblicherweise mit 60% des Medianeinkommens festgesetzt ist, unterschreitet, wird Armutsgefährdung vermutet. Die Armutsgefährdungsquote ist somit der Anteil der Personen, deren verfügbares Äquivalenzeinkommen weniger als 60% des nationalen mittleren Einkommens ausmacht. [@Eurostatriskpoverty] Somit drückt die Armutsgefährdungsquote nur das Ausmaß der Armut aus, aber nicht die Intensität, da nicht berücksichtigt wird, wie weit die jeweilige Personen vom Schwellenwert entfernt ist. Veränderungen wie etwa steigende Lebenserhaltungskosten werden bei der Berechnung der Armutsgefährdungsquote im Zeitverlauf nicht berücksichtigt. 
-
 
 In Frankreich gelten 12,3% der Bevölkerung laut der Armutsgefährdungsquote als armutsgefährdet. Dies entspricht dem gleichen Anteil der Bevölkerung wie zu Beginn des Betrachtungszeitraumes. Die Armutsgefährdungsquote umfasst alle Personen der Bevölkerung Frankreichs, die in Privathaushalten leben. Die Armutsgefährdungsquote zeigt über den Beobachtungszeitraum relative Konstanz und weist als die bemerkenswerteste Veränderung den Anstieg zwischen 2010 und 2012 von rund 1,3% auf. Im Jahr 2012 wird der höchste Wert der Armutsgefährdungsquote von etwa 13,6% erreicht, welcher dann wieder auf 12,6% im Jahr 2015 absinkt. Der Anstieg der Armutsgefährdungsquote geht laut der staatlichen französischen Statistikbehörde auf die Wirtschafts- und Finanzkrise 2008/2009 zurück und sinkt seitdem wieder ab.
 
@@ -184,7 +138,7 @@ Die Aufspaltung der Armutsgefährdungsquote nach Geschlecht ermöglicht die Anal
 
 ![Armutsgefährdungsquote nach Geschlecht in Frankreich, 2007-2017](img/povertyplot2.png){width=90%}
 
-Außerdem kann die Armutsgefährdungsquote nach unterschiedlichen Altersschichten aufgeschlüsselt werden. Die untenstehende Tabelle zeigt die Armutsgefährdungsquote der drei unterschiedlichen Altersgruppen: unter 18, zwischen 18-64 und älter als 65 Jahre  
+Außerdem kann die Armutsgefährdungsquote nach unterschiedlichen Altersschichten aufgeschlüsselt werden. Die untenstehende Tabelle zeigt die Armutsgefährdungsquote der drei unterschiedlichen Altersgruppen: unter 18, zwischen 18-64 und älter als 65 Jahre und für die Jahre 2007, 2010, 2012, 2015 und 2017.
 
 |Alter        | <18   | 18-64  | >65   |
 | ---         | ----- | ------ | ----- |
@@ -196,6 +150,8 @@ Außerdem kann die Armutsgefährdungsquote nach unterschiedlichen Altersschichte
 
 Dabei lässt sich erkennen, dass die älteste Altersgruppe, nämlich jene über 65, den niedrigsten Anteil über alle drei Jahre hinweg anzeigt, die von Armut bedroht ist. Die mittlere Altersgruppe hingegen ist in allen Jahren, bis auf in 2017, die am meisten armutsgefährdete Schicht. Der Anteil der armutsgefährdeten unter 18-Jährigen nimmt über den Beobachtungszeitraum kontinuierlich zu und stellt im letzten Jahr die Gruppe dar, die am meisten von Armut bedroht ist.
 
+#### Erhebliche materielle Deprivation
+
 Die Quote der erheblichen materiellen Deprivation ist ein absolutes Maß zur Messung der Armut und beschreibt jenen Anteil der Personen, die aufgrund von mangelnden Resourcen mit materiellen Entbehrungen leben müssen. Dabei wird bewusst unterschieden, ob sich eine Person gewisse Einheiten nicht leisten kann oder will. Um eine verlässlichere Messung der materiellen Deprivation zu ermöglichen, wird ein Index aufgestellt, der insgesamt aus 9 Elementen besteht. Schwere materielle Entbehrung liegt dann vor, wenn sich eine Person vier von diesen neun ausgewählten Elemente nicht leisten kann. Diese umfassen unter anderem ob sich eine Person eine Waschmaschine leisten kann, mehrfach in Zahlungsrückstand (Miete, Strom, Kreditkarte) geraten ist und die Fähigkeit, die Wohnung ausreichend warm halten zu können. Somit werden damit Dimensionen berücksichtigt die für das Leben notwendig sind und einen gewissen Mindeststandard ermöglichen. [@Eurostatindicator]
 
 Die untenstehende Tabelle zeigt die Quote der schweren materiellen Deprivation (SMD) für die Jahre 2007, 2010, 2012, 2015 und 2017.
@@ -206,11 +162,16 @@ Die untenstehende Tabelle zeigt die Quote der schweren materiellen Deprivation (
 
 Diese 9 Elemente werden auf Haushaltsebene abgefragt und anschließend den einzelnen Personen des Haushalts zugeordnet. Im Jahr 2007 waren 5,6% der Bevölkerung in Frankreich von erheblicher materieller Deprivation betroffen. Seit diesem Zeitpunkt lässt sich über den untersuchten Beobachtungszeitraum aufgrund des mithilfe von EU-SILC Daten errechneten Indexes ein kontinuierliches Absinken der Quote der materiellen Deprivation feststellen. Während der Unterschied zwischen 2007 und 2010 eher gering ist, sinkt die Quote der schweren materiellen Deprivation besonderen bis 2012 relativ stark ab und erreicht 2,8% im Jahr 2017. 
 
-Dass der oben berechnete Indikator über den genannten Zeitraum absinkt ist realistisch und stimmt mit anderen Vergleichswerter zur erheblichen materiellen Deprivation überein. Der große Sprung bis 2012 wirkt jedoch nicht plausibel - es liegt nahe, dass dieser aus dem Zeitreihenbrüchen einer der neuen Variable stammt, nämlich jener die den Zahlungsrückstand betrifft. Die Variable und die Definitionen wurde 2011 geändert: Vor der Änderung wurde nur berücksichtigt, wenn jemals ein Zahlungsrückstand betreffend Miete, Gas, Strom und Kreditkarte entstanden ist. Ab 2011 wurde unterteilt, wie oft ein Rückstand entstanden ist und nur als materielle Deprivation gezählt, wenn dieser zwei Mal oder öfter enstanden ist. Dies erklärt, warum die Quote der materiellen Deprivation abrupt erheblich absinkt.
+Dass der oben berechnete Indikator über den genannten Zeitraum absinkt ist realistisch und stimmt mit anderen Vergleichswerten zur erheblichen materiellen Deprivation überein. Der große Sprung bis 2012 wirkt jedoch nicht plausibel - es liegt nahe, dass dieser aus dem Zeitreihenbruch einer der neun Variable stammt, nämlich jener die den Zahlungsrückstand betrifft. Die Variable und die Definition wurde 2011 geändert: Vor der Änderung wurde nur berücksichtigt, wenn jemals ein Zahlungsrückstand betreffend Miete, Gas, Strom und Kreditkarte entstanden ist. Ab 2011 wurde unterteilt, wie oft ein Rückstand entstanden ist und nur als materielle Deprivation gezählt, wenn dieser zwei Mal oder öfter zustande gekommen ist. Dies erklärt, warum die Quote der materiellen Deprivation abrupt erheblich absinkt.
 
 Beide Armutsindikatoren, die Quote der materiellen Deprivation sowie die Armutsgefährdungsquote, schaffen es jedoch nur ein beschränktes Ausmaß der verschiedenen Armutslagen darzustellen. Um die Vielschichtigkeit von Armut besser darstellen zu können, würde es sich für eine umfangreiche Analyse noch empfehlen weitere Indikatoren zu betrachten. 
 
 # Zusammenfassung
+
+Die Einkommensverteilung in Frankreich wird mithilfe verschiedenen Indikatoren über die Zeitreihe von 2004 bis 2017 analysiert. Dabei wird der Median, der Mittelwert, der Gini-Index, der Anteil der Top 10% und das S80/S20 Einkommensquintilverhältnis untersucht. Seit 2007 lässt sich ein durchgehender Anstieg bezüglich des mittleren aber auch des Durchschnittseinkommens beobachten. Das Durchschnittseinkommen ist über den Beobachtungszeitraum stärker angestiegen und liegt deutlich über dem Medianeinkommen, welches für eine rechtsschiefe Verteilung spricht. Der Mittelwert war 2004 noch um 12,6% höher als der Medien, im Jahr 2017 betrug der Unterschied bereits 16,1%. Die Betrachtung des Gini-Koeffizientens für alle drei Einkommenskonzepte zeigt den niedrigsten Wert im Jahr 2007. Der Gini-Index des Faktoreinkommens vor Steuern zeigt einen leichten Anstieg von 2008 bis 2017 und liegt klar erkennbar über den Gini-Indizes der anderen beiden Einkommensaggregaten, was für Umverteilungseffekte durch staatliche Insitutionen und Steuersätzen spricht. 2011 wird nicht nur höchste Wert des Gini-Koeffizienten erreicht, sondern auch ein deutlicher Rückgang des Medianeinkommens verzeichnet, welches sich durch die Folgen der Wirtschafts- und Finanzkrise erklären lässt.
+Für den Anteil den die Top 10% am Gesamteinkommen verdienen, lässt sich über die gesamte Zeitreihe (2004 bis 2017) ein deutlicher Anstieg beobachten, unabhängig davon, welches der drei Einkommensaggregate verwendet wird. Naheliegend für den Anstieg sind einerseits Schwächung die Senkung des Spitzensteuersatzes, der Anstieg der Vermögenskonzentration aber auch weitere ökonomische und institutionelle Faktoren, wie unter anderem die sinkenden Einflussnahme von Gewerkschaften. Zusammenfassend lässt sich aufgrund aller vier Verteilungsindikatoren ein Anstieg der Einkommensungleichheit in Frankreich konstatieren.
+
+Zur Beurteilung der Entwicklung von Armut und sozialen Ausgrenzung innerhalb Frankreichs wurde die Armutsgefährdungsquote und die Quote der materiellen Deprivation über den Betrachtungszeitraum von 2007-2017 untersucht. Im Jahr 2017 waren 12,3% der Bevölkerung in Frankreich von Armut bedroht, gemessen an der Armutsgefährdungsquote. Während der Wirtschafts- und Finanzkrise und der nachfolgenden Rezession zeigt sich der erheblichste Anstieg der Armutsgefährdungsquote und hatte zur Folge, dass 13,6% der Bevölkerung armutsgefährdet waren. Anschließend sinkt der Indikator wieder und erreicht das gleiche Level wie zu Beginn des Betrachtungszeitraumes. Die Aufspaltung nach Geschlecht zeigt, dass die Armutsgefährdungsquote von Frauen kontinuierlich über jener der Männer liegt und damit das Armutsrisiko über die gesamte Zeitreihe für Frauen im Durchschnitt höher ist als für Männer. Außerdem lassen die Berechnungen vermuten, dass von dem bemerkenswerte Anstieg der generellen Armutsgefährdungsquote mehr Frauen als Männer betroffen waren. Armut in Form von erheblicher materieller Entbehrung, zeigt jedoch ein anderes Bild als die Armutsgefährdungsquote: Über den untersuchten Beobachtungszeitraum sinkt die Quote der materiellen Deprivation kontinuierlich ab und erreicht 2017 ein deutliches niederes Level als zum Beginn, im Jahr 2007.
 
 
 # Literatur

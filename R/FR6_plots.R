@@ -178,17 +178,3 @@ ggplot8 <- ggplot(agearop1, aes(x=year)) +
 
 ggplot8
 
-#8) Gini and poverty ---------------------------------------
-
-gini13 <- gini13 %>% filter(rb010 > 2006)
-
-arop <- arop %>% 
-  mutate(rb010=2006:2017) %>% 
-  filter(rb010 > 2006) 
-
-povgini <- left_join(arop, gini13)
-
-plot1 <- plot(gini13$statistic, arop$value)
-abline(plot1, col="blue")
-lm(height ~ bodymass, col = "blue")
-abline(lm(height ~ bodymass))
