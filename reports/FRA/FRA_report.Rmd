@@ -2,22 +2,19 @@
 title: "Einkommensverteilung in Frankreich"
 subtitle: "2063 - Ökonomie der Verteilung"
 author: "Julia Mathe & Martina Pardy"
-abstract:  "Diese Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich die Einkommensverteilung in Frankreich generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Die Einkommensverteilung in Frankreich wird mithilfe von verschiedenen Indikatoren über die Zeitreihe von 2007 bis 2017 analysiert. Dabei wird der Median, der Mittelwert, der Gini-Index, der Anteil der Top 10% und das S80/S20 Einkommensquintilverhältnis untersucht. Zur Beurteilung der Entwicklung von Armut und sozialen Ausgrenzung innerhalb Frankreichs wird die Armutsgefährdungsquote und die Quote der materiellen Deprivation über den selben Betrachtungszeitraum analysiert."
+abstract: "Diese Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich die Einkommensverteilung in Frankreich generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden. Die Einkommensverteilung in Frankreich wird mithilfe von verschiedenen Indikatoren über die Zeitreihe von 2007 bis 2017 analysiert. Dabei wird der Median, der Mittelwert, der Gini-Index, der Anteil der Top 10% und das S80/S20 Einkommensquintilverhältnis untersucht. Zur Beurteilung der Entwicklung von Armut und sozialen Ausgrenzung innerhalb Frankreichs wird die Armutsgefährdungsquote und die Quote der materiellen Deprivation über den selben Betrachtungszeitraum analysiert."
 keywords: "a, b, c"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output: 
   pdf_document:
-    latex_engine: xelatex
     toc: true
     includes: 
       in_header: header.tex
-lang: de-DE
 bibliography: references.bib
 ---
 
-
 \newpage
-
+ 
 # Einführung
 
 ## Einkommensverteilung in Frankreich
