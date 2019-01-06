@@ -2,7 +2,7 @@
 title: "Einkommensverteilung in Frankreich"
 subtitle: "2063 - Ökonomie der Verteilung"
 author: "Julia Mathe & Martina Pardy"
-abstract:  "Dieses Dokument stellt einige Funktionen von Rmarkdown vor und bietet eine simple Grundstruktur für Länder-Reports."
+abstract:  "Diese Report stellt die aktuelle Situation Frankreichs in Bezug auf dessen Einkommensverteilung dar. Dafür soll zuerst betrachtet werden, wie sich die Einkommensverteilung in Frankreich generell entwickelt hat, und dann der Fokus auf dessen nationale Armutsentwicklung gelegt werden."
 keywords: "a, b, c"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output: 
@@ -68,22 +68,6 @@ Geordnete Listen:
 3. sind
 9. egal
 
-Simple Tabellen:
-<!-- Leerzeichen sind egal -->
-
-R-Plots:
-
-```{r fig-rnorm, echo=FALSE, fig.cap="Inklusive Optionen", fig.width=4}
-plot(rnorm(50), rnorm(50))
-```
-
-Potentiell weniger simple Tabellen:
-
-```{r echo=FALSE, }
-# Read CSV data, "../../" to look two levels upwards
-table <- read.csv("tables/_template-table.csv")
-knitr::kable(table, caption = "Mit Optionen")
-```
 
 \newpage
 
@@ -125,27 +109,26 @@ Der Bericht der staatlichen französischen Statistikbehörde INSEE, der jährlic
 ## Daten
 Um die Einkommensungleichheit und die Entwicklung von Armut in Frankreich im Zeitverlauf sichtbar zu machen, werden die Daten der EU-SILC (European Union Statistics on Income and Living Conditions) analysiert. Die Daten werden durch standardisierte jährliche Erhebungen innerhalb der EU zum Thema Einkommen und Lebensbedingungen erhoben, wodurch die Daten EU-weit vergleichbar sind. Dabei werden ausschließlich Personen befragt, die in Privathaushalten leben. Da der Schwerpunkt auf Einkommen liegt und detaillierte Daten vorhanden sind, bietet sich die Beurteilung der Einkommensverteilung und sozialen Eingliederung in Frankreich durch EU-SILC Daten an.[@EurostatEUSILC]
 
-Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gtünden allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
+Trotz der EU-weiten Harmonisierung der Datenerhebung treten weiterhin länderspezifischen Unterschiede auf. So wird etwa das Sacheinkommen durch die Bereitstellung von Dienstwägen grundsätzlich separat erhoben und folglich separat in die Einkommensaggregate eingerechnet. In Frankreich ist dies aus technischen Gründen allerdings nicht möglich, sodass etwaige Sacheinkommen durch Dienstwägen bereits in der Variable des Bruttojahreseinkommen (PY010G) enthalten ist. Dies soll im Sinne der Nachvollziehbarkeit erwähnt werden, hat auf die vorliegende Analyse jedoch keine Auswirkungen. [@EurostatQualityReport]
 
 Problematischer gestalten sich Zeitreihenumbrüche in den Datensätzen, xxx Definitionen ändern sich uim Zeitverlauf, im Rahmen der verfügbaren Daten vermieden - überhaupt erwähnen, weil wir nicht genau wissen, wo es hakt? xxx
 
 
 ## Konzepte
-
 Zur Analyse der Einkommensverteilung in Frankreich werden drei verschiedene Einkommensaggregate herangezogen, die nun näher erläutert werden. Das Faktoreinkommen vor Steuern entspricht der Summe aller Erwerbs- und Kapitaleinkommen eines Jahres. Dieses Konzept klammert also das Steuer- und Sozialversicherungssystem eines Landes aus, was nützlich sein kann, um etwa die Verteilung von Löhnen innerhalb der Erwerbsbevölkerung zu begutachten. 
-Problematisch am Faktoreinkommen ist jedoch, dass pensionierte Personen typischerweise über ein sehr kleines bzw. über gar kein Faktoreinkommen verfügen. Steigt also der Anteil älterer Personen an der Gesamtbevölkerung eines Landes, werden dessen Ungleichheitsmaße auf Basis des Faktoreinkommens automatisch größer. Dieser Umstand kann Vergleiche über Jahre bzw. Staaten hinweg verzerren. [@Piketty2018]
+Problematisch am Faktoreinkommen ist jedoch, dass pensionierte Personen typischerweise über ein sehr kleines bzw. über gar kein Faktoreinkommen verfügen. Steigt also der Anteil älterer Personen an der Gesamtbevölkerung eines Landes, werden dessen Ungleichheitsmaße auf Basis des Faktoreinkommens automatisch gröﬂer. Dieser Umstand kann Vergleiche über Jahre bzw. Staaten hinweg verzerren. [@Piketty2018]
 
 Das Nationaleinkommen vor Steuern entspricht dem Faktoreinkommen zuzüglich Arbeitslosenbezüge und Pensionszahlungen. Andere Transfer- und Steuerzahlungen bleiben aber weiterhin unberücksichtigt. Durch das Einbeziehen von arbeitsbezogenen Transfers wird die beim Faktoreinkommen auftretende Verzerrung durch veränderte Altersstrukturen umgangen. Allerdings wird das Nationaleinkommen vor Steuern naturgemäß durch Reformen im Bereich der Arbeitslosen- und Pensionsversicherung verzerrt. Das kann aber durchaus einen gewünschten Effekt darstellen und durch einen Vergleich mit dem Faktoreinkommen vor Steuern erkenntlich gemacht werden.
 
-Das verfügbare Einkommen nach Steuern entspricht dem Nationaleinkommen vor Steuern, zuzüglich aller weiteren monetären Transfers und abzüglich aller direkten Steuern. Dieses Konzept ist von allen drei vorgestellten Aggregaten zur Messung der Armutsgefährdungsquote am besten geeignet, da insbesondere Personen am unteren Ende der Einkommensverteilung auf staatliche Transfers angewiesen sind, die im Zuge der beiden Vorsteuer-Aggregate nicht vollständig berücksichtigt werden. Die Verteilung des verfügbaren Einkommens wird daher im Fokus dieser Arbeit stehen. Wertvolle Einblicke kann zudem eine Gegenüberstellung des verfügbaren Einkommens mit den Vorsteuer-Aggregaten liefern, da sie das Ausmaß der Umverteilung durch den Staat wiedergibt.
+Das verfügbare Einkommen nach Steuern entspricht dem Nationaleinkommen vor Steuern, zuzüglich aller weiteren monetären Transfers und abz¸glich aller direkten Steuern. Dieses Konzept ist von allen drei vorgestellten Aggregaten zur Messung der Armutsgefährdungsquote am besten geeignet, da insbesondere Personen am unteren Ende der Einkommensverteilung auf staatliche Transfers angewiesen sind, die im Zuge der beiden Vorsteuer-Aggregate nicht vollständig berücksichtigt werden. Die Verteilung des verfügbaren Einkommens wird daher im Fokus dieser Arbeit stehen. Wertvolle Einblicke kann zudem eine Gegenüberstellung des verfügbaren Einkommens mit den Vorsteuer-Aggregaten liefern, da sie das Ausmaß der Umverteilung durch den Staat wiedergibt.
 
-Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, müssen zudem Annahmen zur Aufspaltung von Haushalts- in Personeneinkommen getroffen werden. Hierfür werden zwei Konzepte angewandt: In Anlehnung an Eurostat werden alle befragten Personen jeden Alters in das Sample aufgenommen. Dann werden alle Einkommen eines Haushalts addiert und gleichmäßig auf die äquivalenten Haushaltsmitglieder aufgeteilt. Es wird also angenommen, dass alle Haushaltsmitglieder in gleichem Maße vom Haushaltseinkommen zehren. Zudem impliziert der herangezogene Äquivalenzschlüssel, dass Haushalte gewisse Größenvorteile haben. [@Eurostatmethod]
+Da einige Einkommensdaten wie etwa xxxx nur auf Haushaltsebene verfügbar sind, müssen zudem Annahmen zur Aufspaltung von Haushalts- in Personeneinkommen getroffen werden. Hierfür werden zwei Konzepte angewandt: In Anlehnung an Eurostat werden alle befragten Personen jeden Alters in das Sample aufgenommen. Dann werden alle Einkommen eines Haushalts addiert und gleichmäﬂig auf die äquivalenten Haushaltsmitglieder aufgeteilt. Es wird also angenommen, dass alle Haushaltsmitglieder in gleichem Maﬂe vom Haushaltseinkommen zehren. Zudem impliziert der herangezogene Äquivalenzschlüssel, dass Haushalte gewisse Größenvorteile haben. [@Eurostatmethod]
 
-Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschließlich auf Haushaltsebene verfügbar ist (…). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (…) hinzugezählt. Es werden also keine Größenvorteile von Haushalten impliziert. Zudem handelt es sich um ein individualistisches Einkommenskonzept, das auf der Annahme basiert, dass etwa eine nicht erwerbstätige Frau in einem geringeren Ausmaß vom Gehalt ihres Mannes profitiert als dieser selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zum Beispiel zur Analyse von Geschlechterunterschieden nützlich sein. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
+Als zweites Konzept werden in Anlehnung an die World Inequality Database bloß Personen ab einem Alter von 20 Jahren in das Sample aufgenommen. Dann wird nicht das gesamte Haushaltseinkommen gepoolt, sondern bloß jener Anteil, der ausschlieﬂlich auf Haushaltsebene verfügbar ist (Ö). Dieser Anteil wird dann auf die reale Anzahl an Haushaltsmitgliedern aufgeteilt und zum persönlichen Einkommen (Ö) hinzugezählt. Es werden also keine Gröﬂenvorteile von Haushalten impliziert. Zudem handelt es sich um ein individualistisches Einkommenskonzept, das auf der Annahme basiert, dass etwa eine nicht erwerbstätige Frau in einem geringeren Ausmaß vom Gehalt ihres Mannes profitiert als dieser selbst. Angesichts der niedrigeren Erwerbsquote von Frauen und des Gender Wage Gap kann diese Methode also zum Beispiel zur Analyse von Geschlechterunterschieden nützlich sein. Allerdings wird durch das restriktivere Sample die finanzielle Belastung durch im Haushalt lebende Kinder vollständig ausgeklammert.
 
-Abschließend soll angemerkt werden, dass im Zuge der Datenaufbereitung alle Personen, die ein Einkommen von null Euro oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewaehrleistet
+ZUm Prozess der Datenaufbereitung soll angemerkt werden, dass alle Personen, die kein Einkommen oder ein negatives Einkommen in einer der drei Einkommenskonzepte aufweisen, vor der Berechnung aller Indikatoren aus dem Sample genommen werden. Damit wird gewährleistet, dass alle Indikatoren, auch etwa die Quintilsverhältnisse, problemlos berechnet werden können und dass alle Indikatoren aller dreier Einkommensaggregate auf der gleichen Anzahl an Beobachtungen basieren. Unterschiede in der Anzahl an Beobachtungen treten somit nur zwischen dem Eurostat- und WID-Konzept auf, da letzteres auf Personen ab einem Alter von 20 Jahren eingeschränkt ist. Der Vorteil an dieser Vorgehensweise ist, dass die Indikatoren besser zueinander in Bezug gesetzt werden können. Der Nachteil ist jedoch, dass jene Personen, die etwa aufgrund von Pensionierung oder Arbeitslosigkeit kein Faktoreinkommen vor Steuern beziehen, aus dem Sample ausgeschlossen werden - das gilt auch für die Analyse auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens.
 
-dadurch werden alle Personen, die kein Faktoreinkommen haben, aus dem Sample genommen - auch für die Analysen auf Basis des Nationaleinkommens vor Steuern und des verfügbaren Einkommens. bla
+Die berechneten Indikatoren für die Periode von 2004 bis 2007 werden (vorerst) nicht ausgewiesen und diskutiert, da sie große Sprünge aufweisen. Diese Sprünge wirken unplausibel - es wird vermutet, dass sie aus Zeitreihenbrüchen in den Definitionen der von Eurostat bereitgestellten Daten resultieren. Auch etwaige Anpassungen der Personen- oder Haushaltsgewichte könnte dazu beigetragen haben, dass die berechneten Indikatoren nicht über den gesamten analysierten Zeitraum vergleichbar zu sein scheinen.
 
 ### Einkommensverteilung in Frankreich
 
@@ -153,17 +136,18 @@ allgemeine Einführung, unterschiedliche Konzepte erklären, Fokus auf verfügba
 
 #### Median und Mittelwert
 
-xxx Median und Mittelwert erklären
-
 Die Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. 
-Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkommen in Frankreich von 2004 bis 2017 angestiegen ist. So stieg das mittlere Jahreseinkommen eines äqivalenten Haushaltsmitglieds von 2004 bis 2016 von rund 18.550€ auf 22.020€ an. Das Durchschnittseinkommen stieg noch stärker an und liegt zudem deutlich über dem Medianeinkommen, was für eine rechtsschiefe Einkommensverteilung spricht. (prüfen, ob relativer Gap zwischen Mean und Median gewachsen)
+Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkommen in Frankreich von 2007 bis 2017 angestiegen ist. So stieg das mittlere Jahreseinkommen eines äqivalenten Haushaltsmitglieds von 2004 bis 2016 von rund 18.550€ auf 22.020€ an. Das Durchschnittseinkommen stieg noch stärker an und liegt zudem deutlich über dem Medianeinkommen, was bedeutet, dass eine rechtsschiefe Einkommensverteilung vorliegt Auch ist der relative Unterschied zwischen Mittelwert und Median des verfügbaren Einkommens über den untersuchten Zeitraum hinweg gewachsen: 2004 lag der Mittelwert noch 12,6 % über dem Median, 2017 waren es 16,1 %.
 
-Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden Perioden stets ein Zuwachs zu verzeichnen war. Diese Einbußen stehen mit der Wirtschafts- und Finanzkrise 2008 in Verbindung, im Schatten derer Frankreich in die Rezession rutschte: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein (von plus 2,34% in 2007 auf minus 2.9% in 2009) Dies wirkte sich auf die Einkommen privater Haushalte negativ aus. [@EurostatGDP]
+Auffallend ist zudem, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden untersuchten Perioden stets ein (zumindest kleiner) Zuwachs zu verzeichnen war. Diese Einbußen können mit der Wirtschafts- und Finanzkrise 2008 in Bezug gesetzt werden, im Schatten derer Frankreichs Volkswirtschaft in die Rezession geriet: Innerhalb von zwei Jahren brach das reale BIP-Wachstum um mehr als 5 Prozentpunkte ein, konkret plus 2,34% in 2007 auf minus 2.9% in 2009. Es liegt nahe, dass sich diese Entwicklung auch auf die Einkommen privater Haushalte negativ auswirkte. [@EurostatGDP]
 
+![Median und Mittelwert des verfügbaren Äquivalenzeinkommens, 2004-2017](img/meanplot.png){width=90%}
 
 #### Gini-Koeffizient
 
-Der Gini-Koeffizient gehört zu den Standardindikatoren zur Messung der Einkommensungleichheit. Der Indikator kann Werte zwischen 0 und 1 einnehmen, wobei 0 eine vollkommen gleiche und 1 eine vollkommen ungleiche Verteilung des Einkommens beschreibt. Je höher der Wert
+Der Gini-Index misst, wie weit die Einkommensverteilung eines Landes von einer perfekt gleichen Verteilung abweicht. Er kann grundsätzlich Werte zwischen 0 und 1 annehmen, wobei 0 eine vollkommen gleiche Verteilung wiedergibt; 1 eine vollkommen ungleiche Verteilung. Nicht zuletzt aufgrund seiner internationalen Verfügbarkeit und einfachen Interpretation ist der Gini-Index der am häufigsten angewendedete Indikator zur Messung von Ungleichheit in Einkommensverteilungen. Nachteil des Gini-Index ist, dass er auf Veränderungen in der Mitte der Verteilung deutlich stärker reagiert als auf Veränderungen an den Rändern der Verteilung [@Gastwirth2017]. Aus diesem Grund wird er in dieser Arbeit bloß komplementär zu weiteren Ungleichheitsinidikatoren herangezogen.
+
+Im nachfolgenden Graphen ist die Entwicklung der Gini-Indizes der drei Einkommensaggregate von 2007 bis 2017 abgebildet. Der Gini-Index des Faktoreinkommens vor Steuern ist von 2008 bis 2017 leicht angestiegen und liegt deutlich über den Gini-Indizes der anderen beiden Einkommensaggreate, was sich durch die Umverteilungswirkung staatlicher Institutionen erklären lässt. Für alle Einkommenskonzepte befindet sich der Index im Jahr 2007, also in Vorkrisenzeiten, auf dem niedrigsten Niveau des gesamten Betrachtungszeitraumes. Ein deutlicher Peak ist im Jahr 2011 zu erkennen, im gleichen Jahr also, in dem das Medianeinkommen deutlich sank. Dieser Peak fällt für das verfügbare Einkommen allerdings deutlich schwächer aus als für das Nationaleinkommen vor Steuern. (xxx schauen, was für Staatsausgaben und Reformen es gab)
 
 ![Gini-Index in Frankreich, 2004-2017](img/Giniplot.png){width=90%}
 
@@ -212,11 +196,19 @@ Außerdem kann die Armutsgefährdungsquote nach unterschiedlichen Altersschichte
 
 Dabei lässt sich erkennen, dass die älteste Altersgruppe, nämlich jene über 65, den niedrigsten Anteil über alle drei Jahre hinweg anzeigt, die von Armut bedroht ist. Die mittlere Altersgruppe hingegen ist in allen Jahren, bis auf in 2017, die am meisten armutsgefährdete Schicht. Der Anteil der armutsgefährdeten unter 18-Jährigen nimmt über den Beobachtungszeitraum kontinuierlich zu und stellt im letzten Jahr die Gruppe dar, die am meisten von Armut bedroht ist.
 
-Die Quote der materiellen Deprivation hingegen ist ein absolutes Maß zur Messung der Armut und beschreibt jenen Anteil der Personen, die aufgrund von mangelnden Resourcen mit materiellen Entbehrungen leben müssen. Materielle Entbehrung liegt dann vor, wenn vier von neun ausgewählten Elemente nicht leisten können. Diese umfassen unter anderem ob sich eine Person eine Waschmaschine leisten kann, mehrfach in Zahlungsrückstand (Miete) geraten ist und die Fähigkeit, die Wohnung ausreichend warm halten zu können. Somit werden damit Dimensionen berücksichtigt die für das Leben notwendig sind und einen gewissen Mindeststandard ermöglichen. [@Eurostatindicator]
+Die Quote der erheblichen materiellen Deprivation ist ein absolutes Maß zur Messung der Armut und beschreibt jenen Anteil der Personen, die aufgrund von mangelnden Resourcen mit materiellen Entbehrungen leben müssen. Dabei wird bewusst unterschieden, ob sich eine Person gewisse Einheiten nicht leisten kann oder will. Um eine verlässlichere Messung der materiellen Deprivation zu ermöglichen, wird ein Index aufgestellt, der insgesamt aus 9 Elementen besteht. Schwere materielle Entbehrung liegt dann vor, wenn sich eine Person vier von diesen neun ausgewählten Elemente nicht leisten kann. Diese umfassen unter anderem ob sich eine Person eine Waschmaschine leisten kann, mehrfach in Zahlungsrückstand (Miete, Strom, Kreditkarte) geraten ist und die Fähigkeit, die Wohnung ausreichend warm halten zu können. Somit werden damit Dimensionen berücksichtigt die für das Leben notwendig sind und einen gewissen Mindeststandard ermöglichen. [@Eurostatindicator]
 
-Der Grad der niedrigen Erwerbsintensität stellt insofern einen relevanten Armutsindikator dar, dass der Großteil der Einkommen durch Erwerbstätigkeit generiert wird. Die Messgröße befindet sich somit auf Haushaltsebene und stellt das potentielle Einkommen, wenn alle Monate im Bezugsjahr gearbeitet wird, in Relation zum tatsächlichen Einkommen, wie viele Monate gearbeitet wurden. Daher tendieren Haushalt eher dazu, von Armut bedroht oder betroffen zu sein, wenn eine niedrige Erwerbsintensität der erwerbstätigen Haushaltsmitgliedern vorliegt. Der Schwellenwert, welcher einem Haushalt eine niedrige Erwerbsintensität zuordnet, wird erreicht, wenn das tatsächliche Einkommen der 18-60 jährigen Haushaltsmitgliedern 20% des potentiellen Einkommens unterschreitet. Der Indikator miest somit, wie lange die Personen eines Haushalts einer Erwerbstätigkeit innerhalb eines Jahres nachgegangen sind, gibt jedoch kaum Aufschluss über die Stundenanzahl der Beschäftigung. Somit wird eine geringfügige oder Teilzeit Anstellung, die über den gleichen Zeitraum erfolgt, gleich bewertet wie eine Vollzeitbeschäftigung, obwohl die Höhe des dadurch generierten Einkommens stark variert. Obwohl dies einen erheblichen Nachteil darstellt, soll der Grad der niedrigen Erwerbstätigkeit verwendet werden, um die Intensität der Erwerbstätigkeit pro Haushalt beurteilen zu können. [@eurostaterwerb]
+Die untenstehende Tabelle zeigt die Quote der schweren materiellen Deprivation (SMD) für die Jahre 2007, 2010, 2012, 2015 und 2017.
 
+|Jahr         | 2007  | 2010   | 2012  | 2015   | 2017   |
+| ---         | ----- | ------ | ----- | ------ | -----  |
+| SMD         | 5,6   | 5,5    | 3,6   | 3,5    | 2,8    |
 
+Diese 9 Elemente werden auf Haushaltsebene abgefragt und anschließend den einzelnen Personen des Haushalts zugeordnet. Im Jahr 2007 waren 5,6% der Bevölkerung in Frankreich von erheblicher materieller Deprivation betroffen. Seit diesem Zeitpunkt lässt sich über den untersuchten Beobachtungszeitraum aufgrund des mithilfe von EU-SILC Daten errechneten Indexes ein kontinuierliches Absinken der Quote der materiellen Deprivation feststellen. Während der Unterschied zwischen 2007 und 2010 eher gering ist, sinkt die Quote der schweren materiellen Deprivation besonderen bis 2012 relativ stark ab und erreicht 2,8% im Jahr 2017. 
+
+Dass der oben berechnete Indikator über den genannten Zeitraum absinkt ist realistisch und stimmt mit anderen Vergleichswerter zur erheblichen materiellen Deprivation überein. Der große Sprung bis 2012 wirkt jedoch nicht plausibel - es liegt nahe, dass dieser aus dem Zeitreihenbrüchen einer der neuen Variable stammt, nämlich jener die den Zahlungsrückstand betrifft. Die Variable und die Definitionen wurde 2011 geändert: Vor der Änderung wurde nur berücksichtigt, wenn jemals ein Zahlungsrückstand betreffend Miete, Gas, Strom und Kreditkarte entstanden ist. Ab 2011 wurde unterteilt, wie oft ein Rückstand entstanden ist und nur als materielle Deprivation gezählt, wenn dieser zwei Mal oder öfter enstanden ist. Dies erklärt, warum die Quote der materiellen Deprivation abrupt erheblich absinkt.
+
+Beide Armutsindikatoren, die Quote der materiellen Deprivation sowie die Armutsgefährdungsquote, schaffen es jedoch nur ein beschränktes Ausmaß der verschiedenen Armutslagen darzustellen. Um die Vielschichtigkeit von Armut besser darstellen zu können, würde es sich für eine umfangreiche Analyse noch empfehlen weitere Indikatoren zu betrachten. 
 
 # Zusammenfassung
 
