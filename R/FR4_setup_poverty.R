@@ -231,7 +231,7 @@ silc.h <- silc.h %>% mutate(id_h = paste0(hb010, hb030))
 silc.rph <- left_join(silc.rp, silc.h)
 
 # Use only data between 2006-2017
-silc.rph <- silc.rph %>% filter(rb010>2005)
+silc.rph <- silc.rph %>% filter(rb010>2006)
 
 View(silc.rph)
 

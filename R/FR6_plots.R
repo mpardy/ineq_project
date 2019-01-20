@@ -23,7 +23,7 @@ ggplot1 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) +
 
 ggplot1
 
-# 2) Gini-index
+# 2) Gini-index -------------------------------------------------------------
 
 ggplot2 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
   geom_line(aes(y = indicators.p1[,8], col = "Faktoreinkommen vor Steuern")) +
@@ -38,7 +38,7 @@ ggplot2 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) +
 
 ggplot2
 
-# 3) S80/S20
+# 3) S80/S20 ----------------------------------------------------------------
 
 ggplot3 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
   geom_line(aes(y = indicators.p1[,12], col = "Nationaleinkommen vor Steuern")) + 
@@ -53,7 +53,7 @@ ggplot3 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) +
 ggplot3
 
 
-# 4) Anteil der Top 10%
+# 4) Anteil der Top 10% -----------------------------------------------------
 
 ggplot4 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
   geom_line(aes(y = indicators.p1[,14], col = "Faktoreinkommen vor Steuern")) + 
@@ -71,12 +71,12 @@ ggplot4
 # 5) At risk of poverty rate, TOTAL ------------------------------------------
 
 # Prepare data
-arop <- data.frame(arop$value, arop$threshold)
-arop <- arop %>% mutate (rb010 = 2007:2017)
+arop1 <- data.frame(arop1$value, arop1$threshold)
+arop1 <- arop1 %>% mutate (rb010 = 2007:2017)
 
 # Create plot
-ggplot5 <- ggplot(arop, aes(x=rb010)) + 
-  geom_line(aes(y=arop.value, color = "Anteil Armutsgefährdung")) + 
+ggplot5 <- ggplot(arop1, aes(x=rb010)) + 
+  geom_line(aes(y=arop1.value, color = "Anteil Armutsgefährdung")) + 
   labs(title="Armutsgefährdungsquote", 
        subtitle="in Frankreich von 2007-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
@@ -147,9 +147,7 @@ ggplot7 <- ggplot(agearop, aes(x=year)) +
 
 ggplot7
 
---------------------------------------------
-
-#AGE: 0-5, 6-11, 12-17
+#8) At risk of poverty rateAGE: 0-5, 6-11, 12-17 ------------------------
   
 # Prepare Plot
 arop5 <- data.frame(arop5$value)
