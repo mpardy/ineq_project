@@ -20,21 +20,21 @@
 #1) Use laeken package using y13
 library(laeken)
 
-silc.p106 <- silc.p1 %>% filter(rb010 > 2006)
+silc.p07 <- silc.rph %>% filter(rb010 > 2006)
 
-arop1 <- arpr(silc.p106$y13, weights=silc.p106$rb050, years=silc.p106$rb010)
+silc.p105 <- silc.p07
+
+arop1 <- laeken::arpr(silc.p105$y13, weights=silc.p105$rb050, years=silc.p105$rb010)
 arop1
-
-arop <- as.data.frame(arop$value)
 
 
 #1a) GENDER: At risk of poverty rate -------------------------------------------
 
 # age >=18 
 
-silc.p118 <- silc.p106 %>% filter(age>=18)
+silc.p118 <- silc.p07 %>% filter(age>=18)
 
-arop1 <- laeken::arpr(silc.p118$y13, weights=silc.p118$rb050, breakdown = silc.p118$rb090, years=silc.p118$rb010)
+arop2 <- laeken::arpr(silc.p118$y13, weights=silc.p118$rb050, breakdown = silc.p118$rb090, years=silc.p118$rb010)
 
 arop2
 
@@ -43,16 +43,15 @@ arop2
 
 #AGE: <18, 18-64, >64
 
-#Prepare data
-silc.p106 <- silc.p106 %>% mutate(agecl1=cut(age,c(0,18,65,120)))
+silc.p07 <- silc.p07 %>% mutate(agecl1=cut(age,c(0,17,65,120)))
 
-arop3 <- arpr (silc.p106$y13, weights=silc.p106$rb050, breakdown = silc.p106$agecl1, years=silc.p106$rb010)
+arop3 <- arpr(silc.p07$y13, weights=silc.p07$rb050, breakdown = silc.p07$agecl1, years=silc.p07$rb010)
+
+arop3
 
 #--------------------------------
   
-#AGE: 0-5, 6-11, 12-17
-
-#Prepare data
+#AGE: 0-5, 5-11, 11-17
 
 silc.p106 <- silc.p106 %>% mutate(agecl2=cut(age,c(0,5,11,17)))
 
