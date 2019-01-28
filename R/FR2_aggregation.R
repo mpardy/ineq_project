@@ -92,15 +92,9 @@ silc.rph20 <- silc.rph20 %>%
            (hy050g + hy060g + hy070g + hy080g 
             - hy120g - hy130g - hy140g) / n)
 
-# Restrict samples to positive income ---------------------------------------
-
-silc.p1 <- silc.rph %>% filter(y11 > 0, y12 > 0, y13 > 0)
-
-silc.p2 <- silc.rph20 %>% filter(y21 > 0, y22 > 0, y23 > 0)
-
 # Store to disk ------------------------------------------------------------
 
-save(silc.p1, file="data/p1.rda",compress = 'xz')
+save(silc.rph, file="data/rph.rda",compress = 'xz')
 
-save(silc.p2, file="data/p2.rda",compress = 'xz')
+save(silc.rph20, file="data/rph20.rda",compress = 'xz')
 
