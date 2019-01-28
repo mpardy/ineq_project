@@ -91,20 +91,22 @@ ggplot5
 #6) At risk of poverty rate, by gender ---------------------------------------
 
 # Prepare data
-arop11 <- data.frame(arop1$valueByStratum)
+arop2 <- data.frame(arop2$valueByStratum)
 
-arop12 <- arop11 %>% filter(stratum==2) %>% 
+arop12 <- arop2 %>% filter(stratum==2) %>% 
   rename("female"=value, "stratum1"=stratum)
 
-arop11 <- arop11 %>% filter(stratum==1) %>% 
+arop11 <- arop2 %>% filter(stratum==1) %>% 
   rename("male"=value)
 
-arop1 <- left_join(arop12, arop11)
+arop2 <- left_join(arop12, arop11)
+
+arop2
 
 # Create plot
-ggplot6 <- ggplot(arop1, aes(x=year)) + 
-  geom_line(aes(y=female, color="Armutsgefährdung Frauen")) +
-  geom_line(aes(y=male, color="Armutsgefährdung Maenner")) +
+ggplot6 <- ggplot(arop2, aes(x=year)) + 
+  geom_line(aes(y=female, color="Frauen")) +
+  geom_line(aes(y=male, color="Männer")) +
   labs(title="Armutsgefährdungsquote nach Geschlecht", 
        subtitle="in Frankreich von 2007-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
@@ -121,21 +123,22 @@ ggplot6
 #AGE: 0-17, 18-64, >65
 
 # Prepare Data
-arop2 <- data.frame(arop2$value)
-arop3 <- data.frame(arop3$value)
-arop4 <- data.frame(arop4$value)
+arop31 <- arop3 %>% filter(stratum=="(0,17]") %>% 
+  rename("until17"=value, "stratum1"=stratum)
 
-agearop <- bind_cols(arop2, arop3, arop4) %>%
-  mutate(year= 2007:2017) %>%
-  rename(aropunder18=arop2.value,
-         aropbetween=arop3.value,
-         aropover64=arop4.value)
+arop32 <- arop3 %>% filter(stratum=="(17,65]") %>% 
+  rename("17to65"=value)
+
+arop33 <- arop3 %>% filter(stratum=="(65,120]") %>% 
+  rename("65to120"=value)
+
+arop3 <- bind_cols(arop31, arop32, arop33)
 
 # Create plot
-ggplot7 <- ggplot(agearop, aes(x=year)) + 
-  geom_line(aes(y=aropunder18, color="Armutsgefährdung unter 18")) +
-  geom_line(aes(y=aropbetween, color="Armutsgefährdung zwischen 18-64")) +
-  geom_line(aes(y=aropover64, color="Armutsgefährdung ab 65")) +
+ggplot7 <- ggplot(arop3, aes(x=year)) + 
+  geom_line(aes(y=aropunder18, color="Unter 18")) +
+  geom_line(aes(y=aropbetween, color="17-65")) +
+  geom_line(aes(y=aropover64, color="Über 64")) +
   labs(title="Armutsgefährdungsquote nach Alter", 
        subtitle="in Frankreich von 2007-2017", 
        caption="Eigene Ausarbeitung, EU-SILC Daten", 
@@ -147,32 +150,4 @@ ggplot7 <- ggplot(agearop, aes(x=year)) +
 
 ggplot7
 
-#8) At risk of poverty rateAGE: 0-5, 6-11, 12-17 ------------------------
-  
-# Prepare Plot
-arop5 <- data.frame(arop5$value)
-arop6 <- data.frame(arop6$value)
-arop7 <- data.frame(arop7$value)
-
-agearop1 <- bind_cols(arop5, arop6, arop7) %>%
-  mutate(year= 2007:2017) %>%
-  rename(aropunder6=arop5.value,
-         aropbetween=arop6.value,
-         aropover12=arop7.value)
-
-# Create plot
-ggplot8 <- ggplot(agearop1, aes(x=year)) + 
-  geom_line(aes(y=aropunder6, color="Armutsgefährdung unter 5")) +
-  geom_line(aes(y=aropbetween, color="Armutsgefährdung zwischen 6-11")) +
-  geom_line(aes(y=aropover12, color="Armutsgefährdung zwischen 12-17")) +
-  labs(title="Armutsgefährdungsquote nach Alter", 
-       subtitle="in Frankreich von 2007-2017", 
-       caption="Eigene Ausarbeitung, EU-SILC Daten", 
-       y ="Armutsgefährdung in %",
-       x = "Jahre",
-       col="Legende") +
-  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
-  scale_y_continuous(limits=c(7,16), breaks=seq(7,16, by = 1))
-
-ggplot8
 
