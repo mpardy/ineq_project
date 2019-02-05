@@ -19,12 +19,12 @@ load("data/p2.rda")
 svy.p1 <- svydesign(ids =  ~id_h,
                     strata = ~rb020,
                     weights = ~rb050,
-                    data = silc.p1) %>% convey_prep()
+                    data = silc.rph) %>% convey_prep()
 
 svy.p2 <- svydesign(ids =  ~id_h, 
                     strata = ~rb020,
                     weights = ~rb050,
-                    data = silc.p2) %>% convey_prep()
+                    data = silc.rph20) %>% convey_prep()
 
 # Inflation ---------------------------------------------------------------
 
@@ -55,9 +55,10 @@ mean.p1 <- left_join(mean.p1, vpi) %>%
   select(-c(VPI))
 
 mean.p1 <- mean.p1 %>% 
-  rename("Mean pre-tax factor income" = statistic.y11, 
-         "Mean pre-tax national income" = statistic.y12,
-         "Mean disposable income" = statistic.y13)
+  rename("Mittelwert Faktoreinkommen vor Steuern" = statistic.y11, 
+         "Mittelwert Nationaleinkommen vor Steuern" = statistic.y12,
+         "Mittelwert verfügbares Äquivalenzeinkommen" = statistic.y13,
+         "Jahr"=rb010)
 
 # Median
 
@@ -71,9 +72,10 @@ median.p1 <- left_join(median.p1, vpi) %>%
   select(-c(VPI))
 
 median.p1 <- median.p1 %>% 
-  rename("Median pre-tax factor income" = statistic1, 
-         "Median pre-tax national income" = statistic2,
-         "Median disposable income" = statistic3)
+  rename("Median Faktoreinkommen vor Steuern" = statistic1, 
+         "Median Nationaleinkommen vor Steuern" = statistic2,
+         "Median verfügbares Äquivalenzeinkommen" = statistic3,
+         "Jahr"=rb010)
 
 # Gini
 
@@ -86,9 +88,10 @@ gini13 <- svyby(~y13, ~rb010, svy.p1, svygini, keep.var = FALSE)
 gini.p1 <- as.data.frame(cbind(gini11, gini12[,2], gini13[,2]))
 
 gini.p1 <- gini.p1 %>% 
-  rename("Gini pre-tax factor income" = statistic, 
-         "Gini pre-tax national income" = "gini12[, 2]",
-         "Gini disposable income" = "gini13[, 2]")
+  rename("Gini Faktoreinkommen vor Steuern" = statistic, 
+         "Gini Nationaleinkommen vor Steuern" = "gini12[, 2]",
+         "Gini verfügbares Äquivalenzeinkommen" = "gini13[, 2]",
+         "Jahr"=rb010)
 
 # S80/S20
 
@@ -101,9 +104,10 @@ s80_13 <- svyby(~y13, ~rb010, svy.p1, svyqsr, keep.var = FALSE)
 s80.p1 <- as.data.frame(cbind(s80_11, s80_12[,2], s80_13[,2]))
 
 s80.p1 <- s80.p1 %>% 
-  rename("S80/S20 pre-tax factor income" = statistic, 
-         "S80/S20 pre-tax national income" = "s80_12[, 2]",
-         "S80/S20 disposable income" = "s80_13[, 2]")
+  rename("S80/S20 Faktoreinkommen vor Steuern" = statistic, 
+         "S80/S20 Nationaleinkommen vor Steuern" = "s80_12[, 2]",
+         "S80/S20 verfügbares Äquivalenzeinkommen" = "s80_13[, 2]",
+         "Jahr"=rb010)
 
 # Top 10% share
 
@@ -147,9 +151,10 @@ rb010 <- c(2004 : 2017)
 top.p1 <- as.data.frame(cbind(rb010, top11[,2], top12[,2], top13[,2]))
 
 top.p1 <- top.p1 %>% 
-  rename("Top 10% share pre-tax factor income" = V2, 
-         "Top 10% share pre-tax national income" = V3,
-         "Top 10% share disposable income" = V4)
+  rename("Anteil Top 10% Faktoreinkommen vor Steuern" = V2, 
+         "Anteil Top 10% Nationaleinkommen vor Steuern" = V3,
+         "Anteil Top 10% verfügbares Äquivalenzeinkommen" = V4,
+         "Jahr"=rb010)
 
 ## P2: PARTIAL SHARING OF RESOURCES, RESTRICTED SAMPLE (>=20 YEARS)---------
 
@@ -166,9 +171,10 @@ mean.p2 <- left_join(mean.p2, vpi) %>%
   select(-c(VPI))
 
 mean.p2 <- mean.p2 %>% 
-  rename("Mean pre-tax factor income" = statistic.y21, 
-         "Mean pre-tax national income" = statistic.y22,
-         "Mean disposable income" = statistic.y23)
+  rename("Mittelwert Faktoreinkommen vor Steuern" = statistic.y21, 
+         "Mittelwert Nationaleinkommen vor Steuern" = statistic.y22,
+         "Mittelwert verfügbares Äquivalenzeinkommen" = statistic.y23,
+         "Jahr"=rb010)
 
 # Median
 
@@ -182,9 +188,10 @@ median.p2 <- left_join(median.p2, vpi) %>%
   select(-c(VPI))
 
 median.p2 <- median.p2 %>% 
-  rename("Median pre-tax factor income" = statistic1, 
-         "Median pre-tax national income" = statistic2,
-         "Median disposable income" = statistic3)
+  rename("Median Faktoreinkommen vor Steuern" = statistic1, 
+         "Median Nationaleinkommen vor Steuern" = statistic2,
+         "Median verfügbares Äquivalenzeinkommen" = statistic3,
+         "Jahr"=rb010)
 
 #Gini
 
@@ -197,9 +204,10 @@ gini23 <- svyby(~y23, ~rb010, svy.p2, svygini, keep.var = FALSE)
 gini.p2 <- as.data.frame(cbind(gini21, gini22[,2], gini23[,2]))
 
 gini.p2 <- gini.p2 %>% 
-  rename("Gini pre-tax factor income" = statistic, 
-         "Gini pre-tax national income" = "gini22[, 2]",
-         "Gini disposable income" = "gini23[, 2]")
+  rename("Gini Faktoreinkommen vor Steuern" = statistic, 
+         "Gini Nationaleinkommen vor Steuern" = "gini22[, 2]",
+         "Gini verfügbares Äquivalenzeinkommen" = "gini23[, 2]",
+         "Jahr"=rb010)
 
 # S80/S20
 
@@ -212,9 +220,10 @@ s80_23 <- svyby(~y23, ~rb010, svy.p2, svyqsr, keep.var = FALSE)
 s80.p2 <- as.data.frame(cbind(s80_21, s80_22[,2], s80_23[,2]))
 
 s80.p2 <- s80.p2 %>% 
-  rename("S80/S20 pre-tax factor income" = statistic, 
-         "S80/S20 pre-tax national income" = "s80_22[, 2]",
-         "S80/S20 disposable income" = "s80_23[, 2]")
+  rename("S80/S20 Faktoreinkommen vor Steuern" = statistic, 
+         "S80/S20 Nationaleinkommen vor Steuern" = "s80_22[, 2]",
+         "S80/S20 verfügbares Äquivalenzeinkommen" = "s80_23[, 2]",
+         "Jahr"=rb010)
 
 # Top 10% share
 
@@ -254,9 +263,10 @@ top23 <- topnum / topden
 top.p2 <- as.data.frame(cbind(rb010, top21[,2], top22[,2], top23[,2]))
 
 top.p2 <- top.p2 %>% 
-  rename("Top 10% share pre-tax factor income" = V2, 
-         "Top 10% share pre-tax national income" = V3,
-         "Top 10% share disposable income" = V4)
+  rename("Anteil Top 10% Faktoreinkommen vor Steuern" = V2, 
+         "Anteil Top 10% Nationaleinkommen vor Steuern" = V3,
+         "Anteil Top 10% verfügbares Äquivalenzeinkommen" = V4,
+         "Jahr"=rb010)
 
 
 ## Summary Dataframes -----------------------------------------------------
@@ -264,6 +274,11 @@ top.p2 <- top.p2 %>%
 # P1: EQUAL SHARING, WHOLE SAMPLE
 
 indicators.p1 <- list(mean.p1, median.p1, gini.p1, s80.p1, top.p1) %>% 
+  reduce(left_join, by = "rb010") %>%
+  round(digits = 4) %>%
+  rename(Year = rb010)
+
+mean.median.p1 <- list(mean.p1, median.p1) %>% 
   reduce(left_join, by = "rb010") %>%
   round(digits = 4) %>%
   rename(Year = rb010)
@@ -278,5 +293,13 @@ indicators.p2 <- list(mean.p2, median.p2, gini.p2, s80.p2, top.p2) %>%
   as.matrix()
 
 
-save(table.p1, file = "data/table_p1.rda")
-save(table.p2, file = "data/table_p2.rda")
+#save(table.p1, file = "data/table_p1.rda")
+#save(indicators.p2, file = "data/table_p2.rda")
+
+write.csv(indicators.p1, file = "data/table_p1.csv")
+write.csv(indicators.p2, file = "data/table_p2.csv")
+
+write.csv(mean.median.p1, file = "data/meanmedian_p1.csv")
+write.csv(gini.p1, file = "data/gini_p1.csv")
+write.csv(s80.p1, file = "data/s80_p1.csv")
+write.csv(top.p1, file = "data/top_p1.csv")
