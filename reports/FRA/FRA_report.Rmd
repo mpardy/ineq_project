@@ -81,9 +81,20 @@ Die berechneten Indikatoren für die Periode von 2004 bis 2008 werden (vorerst) 
 
 ## Einkommensverteilung in Frankreich
 
+
 #### Median und Mittelwert
 
-Die Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. 
+Die Zeitreihen für das Median- und Mittelwerteinkommen wurden mit dem Verbraucherpreisindex der Eurostat bereinigt. Dadurch wurden alle Einkommen in das Preisniveau von 2015 konvertiert. Die untenstehende Tabelle gibt einen Überblick über das Median- und Mittelwerteinkommen in Frankreich von 2004-2017 für alle drei verschiedene Einkommensaggregate nach dem Eurostat-Konzept.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Read CSV data, "../../" to look two levels upwards
+library(readr)
+library(kableExtra) 
+table_mm <- read_csv("../../data/meanmedian_p1.csv")
+knitr::kable(table_mm, caption = "Tabelle 1: Median- und Mittelwerteinkommen, Eurostat-Konzept") %>% kable_styling(bootstrap_options = c("striped"))
+```
+
 Klar ersichtlich ist, dass sowohl das Durchschnitts- als auch das Medianeinkommen in Frankreich von 2007 bis 2017 angestiegen ist. So stieg das mittlere Jahreseinkommen eines äquivalenten Haushaltsmitglieds von 2007 bis 2017 von rund 18.7750€ auf 22.020€ an. Das Durchschnittseinkommen stieg noch stärker an und liegt zudem deutlich über dem Medianeinkommen, was bedeutet, dass eine rechtsschiefe Einkommensverteilung vorliegt. Auch ist der relative Unterschied zwischen Mittelwert und Median des verfügbaren Einkommens über den untersuchten Zeitraum hinweg gewachsen: 2007 lag der Mittelwert noch 12,03 % über dem Median, 2017 waren es 16,1 %. Geeignetere Indikatoren für das Ausmaß der Ungleichheit der Einkommensverteilung, die nachfolgend untersucht werden.
 
 Auffallend ist, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den verbleibenden untersuchten Perioden stets ein (zumindest kleiner) Zuwachs zu verzeichnen war. Diese Einbußen können mit der Wirtschafts- und Finanzkrise 2008 in Bezug gesetzt werden, im Zuge derer Frankreichs Volkswirtschaft in eine Rezession geriet (siehe Literaturüberblick). Es liegt nahe, dass sich diese Entwicklung auch auf die Einkommen privater Haushalte negativ auswirkte. [@EurostatGDP]
@@ -92,7 +103,14 @@ Auffallend ist, dass das Medianeinkommen von 2009 bis 2012 fiel, während in den
 
 #### Gini-Koeffizient
 
-Der Gini-Index misst, wie weit die Einkommensverteilung eines Landes von einer perfekt gleichen Verteilung abweicht. Er kann grundsätzlich Werte zwischen 0 und 1 annehmen, wobei 0 eine vollkommen gleiche Verteilung wiedergibt; 1 eine vollkommen ungleiche Verteilung. Nicht zuletzt aufgrund seiner internationalen Verfügbarkeit und einfachen Interpretation ist der Gini-Index der am häufigsten angewendete Indikator zur Messung von Ungleichheit in Einkommensverteilungen. Nachteil des Gini-Index ist, dass er auf Veränderungen in der Mitte der Verteilung deutlich stärker reagiert als auf Veränderungen an den Rändern der Verteilung [@Gastwirth2017]. Aus diesem Grund wird er in dieser Arbeit bloß komplementär zu weiteren Ungleichheitsinidikatoren herangezogen.
+Der Gini-Index misst, wie weit die Einkommensverteilung eines Landes von einer perfekt gleichen Verteilung abweicht. Er kann grundsätzlich Werte zwischen 0 und 1 annehmen, wobei 0 eine vollkommen gleiche Verteilung wiedergibt; 1 eine vollkommen ungleiche Verteilung. Nicht zuletzt aufgrund seiner internationalen Verfügbarkeit und einfachen Interpretation ist der Gini-Index der am häufigsten angewendete Indikator zur Messung von Ungleichheit in Einkommensverteilungen. Nachteil des Gini-Index ist, dass er auf Veränderungen in der Mitte der Verteilung deutlich stärker reagiert als auf Veränderungen an den Rändern der Verteilung [@Gastwirth2017]. Aus diesem Grund wird er in dieser Arbeit bloß komplementär zu weiteren Ungleichheitsinidikatoren herangezogen. Für den Gini-Koeffizient in Frankreich von 2004-2017 haben sich für alle drei verschiedene Einkommensaggregate nach dem Eurostat-Konzept die Werte der folgenden Tabelle errechnen lassen.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Read CSV data, "../../" to look two levels upwards
+library(readr)
+table_gini <- read_csv("../../data/gini_p1.csv")
+knitr::kable(table_gini, digits=3, caption = "Tabelle 2: Gini-Koeffizient von 2004-2017, Eurostat-Konzept") %>% kable_styling(bootstrap_options = c("striped"))
+```
 
 Im nachfolgenden Graphen ist die Entwicklung der Gini-Indizes der drei Einkommensaggregate von 2007 bis 2017 abgebildet. Der Gini-Index für das verfügbare Einkommen ist von 2007 bis 2017 von 0,26 auf 0,28 angestiegen; der größte Sprung erfolgte allerdings von 2007 auf 2008 – seitdem ist er weitgehend stabil. Der Gini-Index des Faktoreinkommens vor Steuern ist von 2008 bis 2017 leicht angestiegen und liegt deutlich über den Gini-Indizes der anderen beiden Einkommensaggreate, was aus der Umverteilungswirkung staatlicher Institutionen resultiert. Für alle Einkommenskonzepte befindet sich der Index im Jahr 2007, also in Vorkrisenzeiten, auf dem niedrigsten Niveau des gesamten Betrachtungszeitraumes. Ein deutlicher Peak ist im Jahr 2011 zu erkennen, im gleichen Jahr also, in dem das Medianeinkommen deutlich sank. Dieser Peak fällt für das verfügbare Einkommen allerdings deutlich schwächer aus als für das Nationaleinkommen vor Steuern, was sich durch die verteilungswirkung staatlicher Transfers und progressiver Besteuerung erklären lässt. 
 
@@ -103,6 +121,13 @@ Im nachfolgenden Graphen ist die Entwicklung der Gini-Indizes der drei Einkommen
 
 Das S80/S20 Quintilverhältnis (QV) gibt an, um welchen Faktor man das Einkommen der ärmsten 20 Prozent der Bevölkerung multiplizieren muss, um das Einkommen der reichsten 20% zu erhalten. Der Fokus dieses Indikators liegt also, im Kontrast zum Gini-Koeffizienten, auf den beiden äußeren Rändern der Einkommensverteilung. [@Eurostats80]
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Read CSV data, "../../" to look two levels upwards
+library(readr)
+table_s80 <- read_csv("../../data/s80_p1.csv")
+knitr::kable(table_s80, digits=3, caption = "Tabelle 3: S80/S20 Quintilverhältnis von 2004-2017, Eurostat-Konzept") %>% kable_styling(bootstrap_options = c("striped"))
+```
+
 Über die untersuchte Dekade ist das QV sowohl für das Nationaleinkommen vor Steuern als auch für das verfügbare Einkommen angestiegen: 2007 hatten die reichsten 20% über 6,3 mal so viel Nationaleinkommen vor Steuern als die ärmsten 20%, aber nur 3,7 mal so viel verfügbares Einkommen. Im Jahr 2017 beträgt der Indikator 6,5 bzw. 4,1. Auffallend ist ein Peak im Jahr 2011, der auch mit einem sinkenden Medianeinkommen und einem steigenden Gini-Index einherging. Seitdem ist das QV für beide Aggregate jedoch kontinuierlich gesunken. 
 
 Die 2012 in Kraft getretene Steuerreform, im Zuge derer der Grenzsteuersatz für Einkommen über 250.000€ auf 45% erhöht wurde, hatte keinen sichtbaren unmittelbaren Effekt auf das QV des verfügbaren Einkommens. Auch der 2013 und 2014 vorhandene Grenzsteuersatz für Jahrenseinkommen von mehr als einer Million schlägt sich auf den ersten Blick nicht nieder. Möglich ist aber, dass als Reaktion auf die Steuereform schlichtweg weniger Einkommen deklariert wurde. Allerdings machen die von diesen Reformen betroffenen Personen bloß einen kleinen Anteil an den Top 20% aus. Hinzu kommt, dass die Datenerhebung für EU-SILC auf freiwilliger Basis erfolgt. Dadurch unterliegt die Hochrechnung insbesondere am oberen Rand einer großen Schwankungsbreite.
@@ -112,7 +137,17 @@ Die 2012 in Kraft getretene Steuerreform, im Zuge derer der Grenzsteuersatz für
 
 #### Anteil der Top 10%
 
-Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdienen. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). Das gesamte Einkommen wird innerhalb eines Haushalts über alle Mitglieder gleich verteilt (Eurostat-Konzept). Unabhängig vom Einkommenskonzept zeigt sich über den gesamten Betrachtungszeitraum ein Anstieg des Anteils der Top 10% und den höchsten Wert weist durchgehend das Faktoreinkommen auf. Der höchste Zuwachs wird zu Beginn der Periode, im Besonderen im Jahr 2007, verzeichnet. Seit den 1980er Jahren wurden in Frankreich mehrfach Steuerreformen durchgeführt, welche die vierzehn Tarifstufen auf sieben reduziert haben. Dazu zählen jene die den höchsten Steuersatz im Jahr 2006 auf 48,09% und 2007 auf 40% herabgesetzt hat und 2012 wieder auf 45% erhöht hat. [@InstitutePolicy]
+Dieser Einkommensindikator beschreibt jenen Anteil, den die reichsten 10% der französischen Bevölkerung, gemessen am Gesamteinkommen verdienen. Um den Anteil der Top 10% darzustellen, werden die drei verschiedenen Einkommenskonzepte verwendet: das Faktoreinkommen, Nationaleinkommen (beide vor Steuern) und das verfügbare Einkommen (nach Steuern). 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Read CSV data, "../../" to look two levels upwards
+library(readr)
+table_top <- read_csv("../../data/top_p1.csv")
+knitr::kable(table_top, digits=3, caption = "Tabelle 4: Anteil der Top 10% von 2004-2017, Eurostat-Konzept") %>% kable_styling(bootstrap_options = c("striped"))
+```
+
+Das gesamte Einkommen wird innerhalb eines Haushalts über alle Mitglieder gleich verteilt (Eurostat-Konzept). Unabhängig vom Einkommenskonzept zeigt sich über den gesamten Betrachtungszeitraum ein Anstieg des Anteils der Top 10% und den höchsten Wert weist durchgehend das Faktoreinkommen auf. Der höchste Zuwachs wird zu Beginn der Periode, im Besonderen im Jahr 2007, verzeichnet. Seit den 1980er Jahren wurden in Frankreich mehrfach Steuerreformen durchgeführt, welche die vierzehn Tarifstufen auf sieben reduziert haben. Dazu zählen jene die den höchsten Steuersatz im Jahr 2006 auf 48,09% und 2007 auf 40% herabgesetzt hat und 2012 wieder auf 45% erhöht hat. [@InstitutePolicy]
 
 ![Einkommensanteil der Top 10% am Gesamteinkommen in Frankreich, 2004-2017](img/top10plot.png){width=90%}
 
@@ -190,5 +225,7 @@ Zur Beurteilung der Entwicklung von Armut und sozialen Ausgrenzung innerhalb Fra
 \newpage
 
 # Literatur
+
+
 
 <!-- Leer lassen -->
