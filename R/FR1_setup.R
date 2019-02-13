@@ -10,10 +10,6 @@ library(tidyr)
 
 "country" <- "FR"
 
-if(!exists(c("country"))) {
-  stop("please specify country and year")
-  }
-
 # Prepare Data ------------------------------------------------------------
 
 # Download data 2004-2013:
@@ -173,4 +169,4 @@ silc.rph[is.na(silc.rph)] <- 0
 
 # Store mutated datasets to disk --------------------------------
 
-save(silc.rph, file="data/rph.rda",compress = 'xz')
+#save(silc.rph, file="data/rph.rda",compress = 'xz')

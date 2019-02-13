@@ -10,10 +10,6 @@ library(tidyr)
 
 "country" <- "FR"
 
-if(!exists(c("country"))) {
-  stop("please specify country and year")
-}
-
 # Prepare Data ------------------------------------------------------------
 
 #Severe material deprivation rate 
@@ -228,11 +224,12 @@ silc.h <- silc.h %>% mutate(id_h = paste0(hb010, hb030))
 
 # Merge rp with h
 
-silc.rph <- left_join(silc.rp, silc.h)
+silc.arop <- left_join(silc.rp, silc.h)
 
-# Use only data between 2006-2017
-silc.rph <- silc.rph %>% filter(rb010>2006)
+# Use only data between 2007-2017
+silc.arop <- silc.arop %>% filter(rb010>2006)
 
-View(silc.rph)
+save(silc.arop, file="data/silc.arop.rda",compress = 'xz')
+
 
 # Fin ---------------------------------------------------------------------

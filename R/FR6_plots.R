@@ -11,62 +11,75 @@ library(eurostat)
 
 #1) Mean and Median --------------------------------------------------------
 
-ggplot1 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+png("meanplot.png", height = 5, width = 7.2,
+    units="in", res = 500)
+
+ggplot(indicators.p1, aes(x = Jahr)) + 
   geom_line(aes(y = indicators.p1[,4], col = "Mittelwert")) + 
   geom_line(aes(y = indicators.p1[,7], col = "Median")) +
   labs(title="Median und Mittelwert", 
        subtitle="des verfügbaren Äquivalenzeinkommens in Frankreich, 2004-2017", 
-       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten, Eurostat-Konzept
+       \n*Zeitreihenbruch von 2007 auf 2008",
        y ="reale Euro",
-       x = "Jahre",
+       x = "Jahr",
        col="Legende")
 
-ggplot1
+dev.off()
 
 # 2) Gini-index -------------------------------------------------------------
 
-ggplot2 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
+png("Giniplot.png", height = 5, width = 7.2, units="in", res = 500)
+
+ggplot(indicators.p1, aes(x = Jahr)) + 
   geom_line(aes(y = indicators.p1[,8], col = "Faktoreinkommen vor Steuern")) +
   geom_line(aes(y = indicators.p1[,9], col = "Nationaleinkommen vor Steuern")) +
   geom_line(aes(y = indicators.p1[,10], col = "verfügbares Äquivalenzeinkommen")) + 
   labs(title="Gini-Index", 
-       subtitle="des verfügbaren Äquivalenzeinkommens in Frankreich, 2004-2017", 
-       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       subtitle="in Frankreich, 2004-2017", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten, Eurostat-Konzept
+       \n*Zeitreihenbruch von 2007 auf 2008", 
        y ="Gini-Index",
-       x = "Jahre",
+       x = "Jahr",
        col = "Legende")
 
-ggplot2
+dev.off()
 
 # 3) S80/S20 ----------------------------------------------------------------
 
-ggplot3 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
-  geom_line(aes(y = indicators.p1[,12], col = "Nationaleinkommen vor Steuern")) + 
-  geom_line(aes(y = indicators.p1[,13], col = "Verfügbares Einkommen")) + 
+png("s80plot.png", height = 5, width = 7.2, units="in", res = 500)
+
+ggplot(indicators.p1, aes(x = Jahr)) + 
+  geom_line(aes(y = indicators.p1[,11], col = "Nationaleinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,12], col = "Verfügbares Einkommen")) + 
   labs(title = "S80/S20 Einkommensquintilverhältnis", 
        subtitle = "in Frankreich, 2004-2017", 
-       caption ="Eigene Ausarbeitung, EU-SILC Daten", 
+       caption ="Eigene Ausarbeitung, EU-SILC Daten, Eurostat-Konzept
+       \n*Zeitreihenbruch von 2007 auf 2008", 
        y ="S80/S20 Verhältnis",
-       x = "Jahre",
+       x = "Jahr",
        col = "Legende")
 
-ggplot3
+dev.off()
 
 
 # 4) Anteil der Top 10% -----------------------------------------------------
 
-ggplot4 <- ggplot(indicators.p1, aes(x = indicators.p1[,1])) + 
-  geom_line(aes(y = indicators.p1[,14], col = "Faktoreinkommen vor Steuern")) + 
-  geom_line(aes(y = indicators.p1[,15], col = "Nationaleinkommen vor Steuern")) + 
-  geom_line(aes(y = indicators.p1[,16], col = "Verfügbares Einkommen")) + 
-  labs(title = "Anteil der Top 10%", 
+png("top10plot.png", height = 5, width = 7.2, units="in", res = 500)
+
+ggplot(indicators.p1, aes(x = Jahr)) + 
+  geom_line(aes(y = indicators.p1[,13], col = "Faktoreinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,14], col = "Nationaleinkommen vor Steuern")) + 
+  geom_line(aes(y = indicators.p1[,15], col = "Verfügbares Einkommen")) + 
+  labs(title = "Anteil der Top 10 Prozent",
        subtitle = "am Gesamteinkommen in Frankreich, 2004-2017", 
-       caption="Eigene Ausarbeitung, EU-SILC Daten", 
+       caption="Eigene Ausarbeitung, EU-SILC Daten, Eurostat-Konzept
+       \n*Zeitreihenbruch von 2007 auf 2008", 
        y ="Anteil in %",
-       x = "Jahre",
+       x = "Jahr",
        col="Legende")
 
-ggplot4
+dev.off()
         
 # 5) At risk of poverty rate, TOTAL ------------------------------------------
 
@@ -75,6 +88,9 @@ arop1 <- data.frame(arop1$value, arop1$threshold)
 arop1 <- arop1 %>% mutate (rb010 = 2007:2017)
 
 # Create plot
+
+library(ggplot2)
+
 ggplot5 <- ggplot(arop1, aes(x=rb010)) + 
   geom_line(aes(y=arop1.value, color = "Anteil Armutsgefährdung")) + 
   labs(title="Armutsgefährdungsquote", 
@@ -83,8 +99,7 @@ ggplot5 <- ggplot(arop1, aes(x=rb010)) +
        y ="Armutsgefährdung in %",
        x = "Jahre",
        col="Legende") +
-  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
-  scale_y_continuous(limits=c(11,15), breaks=seq(11,15, by = 0.5))
+  scale_x_continuous(breaks=c(2007:2017))
 
 ggplot5
 
@@ -113,14 +128,13 @@ ggplot6 <- ggplot(arop2, aes(x=year)) +
        y ="Armutsgefährdung in %",
        x = "Jahre",
        col="Legende") +
-  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
-  scale_y_continuous(limits=c(10,15), breaks=seq(10,15, by = 1))
+  scale_x_continuous(breaks=c(2007:2017))
 
 ggplot6
 
 #7) At risk of poverty rate, by age ---------------------------------------
 
-#AGE: 0-17, 18-64, >65
+# AGE: 0-17, 18-64, >65
 
 # Prepare Data
 arop31 <- arop3 %>% filter(stratum=="(0,17]") %>% 
@@ -145,9 +159,10 @@ ggplot7 <- ggplot(arop3, aes(x=year)) +
        y ="Armutsgefährdung in %",
        x = "Jahre",
        col="Legende") +
-  scale_x_continuous(breaks=c(2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  scale_x_continuous(breaks=c(2007 : 2017)) +
   scale_y_continuous(limits=c(7,16), breaks=seq(7,16, by = 1))
 
 ggplot7
 
+# Fin --------------------------------------------------------------------------
 
