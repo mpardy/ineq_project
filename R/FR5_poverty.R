@@ -20,9 +20,9 @@
 library(dplyr)
 library(laeken)
 
-#load("data/p1.rda")
+load("data/p1.rda")
 
-silc.p105 <- silc.rph %>% filter(rb010 > 2006)
+silc.p105 <- silc.rph %>% filter(rb010 > 2007)
 
 arop1 <- laeken::arpr(silc.p105$y13, weights=silc.p105$rb050, 
                       years=silc.p105$rb010)
@@ -46,7 +46,7 @@ arop3 <- arpr(silc.p07$y13, weights=silc.p07$rb050, breakdown = silc.p07$agecl1,
   
 #2) Severe material deprivation (SMD) rate ------------------------------------
 
-#load("data/silc.arop.rda")
+load("data/silc.arop.rda")
 
 # Use only data between 2011-2017
 # because there are too many NAs concerning variable hs010 in the years before

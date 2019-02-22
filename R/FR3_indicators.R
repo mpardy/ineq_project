@@ -267,9 +267,6 @@ indicators.p1 <- list(mean.p1, median.p1, gini.p1, s80.p1, top.p1) %>%
   round(digits = 4) %>%
   rename(Jahr = rb010)
 
-save(indicators.p1, file = "data/indicators.p1.rda")
-write.csv(indicators.p1, file = "data/table_p1.csv")
-
 # P2: PARTIAL SHARING, RESTRICTED SAMPLE
 
 indicators.p2 <- list(mean.p2, median.p2, gini.p2, s80.p2, top.p2) %>% 
@@ -277,30 +274,56 @@ indicators.p2 <- list(mean.p2, median.p2, gini.p2, s80.p2, top.p2) %>%
   round(digits = 4) %>%
   rename(Jahr = rb010)
 
-save(indicators.p2, file = "data/indicators.p2.rda")
-write.csv(indicators.p2, file = "data/table_p2.csv")
-
-
 # create tables for paper ------------------------------------------------------
 
+#meanmedian
+
 mean.median.p1 <- indicators.p1 %>% 
-  dplyr::select(Jahr, starts_with("Median"), starts_with("Mittelwert"))
+  dplyr::select(Jahr, "Median verfügbares Äquivalenzeinkommen", "Mittelwert verfügbares Äquivalenzeinkommen")
 
-mean.median.p1[,2:7] <- round(mean.median.p1[,2:7], digits = 0)
+mean.median.p1[,2:3] <- round(mean.median.p1[,2:3], digits = 0)
 
-write.csv(mean.median.p1, file = "data/meanmedian_p1.csv")
+mean.median.p1 <- mean.median.p1[5:14,]
+
+mean.median.p1 <- mean.median.p1 %>%
+  rename("Median" = "Median verfügbares Äquivalenzeinkommen",
+         "Mittelwert" = "Mittelwert verfügbares Äquivalenzeinkommen")
+
+write.csv(mean.median.p1, file = "data/meanmedian_p1.csv", row.names = F,
+          fileEncoding = "UTF-8")
+
+#gini
 
 gini.p1 <- indicators.p1 %>% 
   select(Jahr, starts_with("Gini"))
 
-write.csv(gini.p1, file = "data/gini_p1.csv")
+gini.p1[,2:4] <- round(gini.p1[,2:4], digits = 3)
+
+gini.p1 <- gini.p1[5:14,]
+
+write.csv(gini.p1, file = "data/gini_p1.csv", row.names = F,
+          fileEncoding = "UTF-8")
+
+#s80
 
 s80.p1 <- indicators.p1 %>% 
   select(Jahr, starts_with("S80"))
 
-write.csv(s80.p1, file = "data/s80_p1.csv")
+s80.p1[,2:3] <- round(s80.p1[,2:3], digits = 2)
+
+s80.p1 <- s80.p1[5:14,]
+
+write.csv(s80.p1, file = "data/s80_p1.csv", row.names = F,
+          fileEncoding = "UTF-8")
+
+# top10
 
 top.p1 <- indicators.p1 %>% 
   select(Jahr, starts_with("Anteil"))
 
-write.csv(top.p1, file = "data/top_p1.csv")
+top.p1[,2:4] <- round(top.p1[,2:4], digits = 3)
+
+top.p1 <- top.p1[5:14,]
+
+write.csv(top.p1, file = "data/top_p1.csv", row.names = F,
+          fileEncoding = "UTF-8")
